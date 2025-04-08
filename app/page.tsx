@@ -1,12 +1,13 @@
-import Image from "next/image";
+import Img from "@/components/Img";
+
 
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
+        <Img
           className="dark:invert"
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/next.svg`}
+          src="/next.svg"
           alt="Next.js logo"
           width={180}
           height={38}
@@ -32,9 +33,9 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
+            <Img
               className="dark:invert"
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/vercel.svg`}
+              src="/vercel.svg"
               alt="Vercel logomark"
               width={20}
               height={20}
@@ -58,9 +59,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
+          <Img
             aria-hidden
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/file.svg`}
+            src="/file.svg"
             alt="File icon"
             width={16}
             height={16}
@@ -73,9 +74,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
+          <Img
             aria-hidden
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/window.svg`}
+            src="/window.svg"
             alt="Window icon"
             width={16}
             height={16}
@@ -88,9 +89,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
+          <Img
             aria-hidden
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/globe.svg`}
+            src="/globe.svg"
             alt="Globe icon"
             width={16}
             height={16}
