@@ -1,14 +1,12 @@
 import type { NextConfig } from "next";
 
-const repositoryName = "findsy";
-
 const nextConfig: NextConfig = {
   output: "export",
   images: {
     unoptimized: true,
   },
-  basePath: `/${repositoryName}`,
-  assetPrefix: `/${repositoryName}`,
+  basePath: `/findsy`,
+  assetPrefix: `/findsy`,
 };
 
 export default nextConfig;
