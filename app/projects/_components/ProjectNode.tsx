@@ -82,7 +82,7 @@ const ProjectNode = ({
               {/* 프로젝트 상세 타이틀 */}
               <span className="text-xs">{detailTitle}</span>
               {/* 프로젝트 타이틀 */}
-              <p className="text-2xl font-bold">{title}</p>
+              <p className="text-3xl font-bold">{title}</p>
             </div>
             {/* 프로젝트 기간 */}
             <span className="text-sm">
@@ -93,7 +93,7 @@ const ProjectNode = ({
           <Tag items={tags} />
         </div>
         {/* 프로젝트 내용 */}
-        <div className="grow overflow-y-auto scrollbar" style={{ maxHeight }}>
+        <div className="grow overflow-y-auto scrollbar text-justify pr-2" style={{ maxHeight }}>
           {description}
         </div>
       </div>
