@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
+import Tooltip from "@/components/Tooltip";
 
 /**
  * 뮤직플레이어
@@ -81,24 +82,29 @@ const MusicPlayer = () => {
       {/* 재생할 영상 */}
       <div id="youtube-player" />
 
-      {/* Spinning LP image */}
-      <div
-        className={classNames(
-          // 호버시 포인터 처리
-          "hover:cursor-pointer w-[100px] h-[100px] relative"
-        )}
-        onClick={() => setIsPlaying((pre) => !pre)}
-      >
-        <div
-          ref={overlayRef}
-          className="absolute inset-0 rounded-full"
-          style={{
-            backgroundImage: `url('${process.env.NODE_ENV === 'production' ? '/findsy': ''}/images/lp.png')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-      </div>
+      {/* 돌아가는 LP 이미지 */}
+      <Tooltip text={isPlaying ? "음악 정지하기" : "음악 재생하기"}>
+        <button
+          type="button"
+          className={classNames(
+            // 호버시 포인터 처리
+            "hover:cursor-pointer w-[100px] h-[100px] relative"
+          )}
+          onClick={() => setIsPlaying((pre) => !pre)}
+        >
+          <div
+            ref={overlayRef}
+            className="absolute inset-0 rounded-full"
+            style={{
+              backgroundImage: `url('${
+                process.env.NODE_ENV === "production" ? "/findsy" : ""
+              }/images/lp.png')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        </button>
+      </Tooltip>
     </div>
   );
 };
