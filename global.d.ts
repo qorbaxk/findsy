@@ -1,5 +1,3 @@
-// global.d.ts
-
 export {};
 
 declare global {
@@ -19,13 +17,14 @@ declare global {
           playerVars?: YT.PlayerVars;
           events?: {
             onReady?: (event: YT.OnReadyEvent) => void;
-            onStateChange?: (event: YT.OnStateChangeEvent) => void;
           };
         }
       );
       playVideo(): void;
       pauseVideo(): void;
       destroy(): void;
+      getCurrentTime(): number;
+      seekTo(seconds: number, allowSeekAhead: boolean): void;
     }
 
     interface OnReadyEvent {
@@ -48,5 +47,6 @@ declare global {
       enablejsapi?: 0 | 1;
       [key: string]: string | number | undefined;
     }
+
   }
 }

@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Mediasansextended";
-  src: url("/fonts/mediasansextended-bold.otf") format("opentype");
+  src: url("./fonts/mediasansextended-bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
