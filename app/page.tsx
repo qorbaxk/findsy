@@ -1,3 +1,5 @@
+import Img from "@/components/Img";
+import Navbar from "@/components/Navbar";
 import Typing from "@/components/Typing";
 
 export default function Home() {
@@ -21,6 +23,12 @@ export default function Home() {
         <span className="sr-only">안녕하세요. 백승연입니다.</span>
         <Typing sequence={["Hello.\nI am Seungyeon"]}/>
       </h1>
+
+      {/* 네비게이션 */}
+      <Navbar/>
+
+      {/* 하단 화살표 */}
+      <Img src={"/images/down_arrow.svg"} alt="아래로 스크롤을 해주세요." width={40} height={40} className="fixed bottom-4 left-1/2 -translate-x-1/2 animate-bounce"/>
     </main>
   );
 }
