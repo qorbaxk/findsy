@@ -9,9 +9,7 @@ import Tooltip from "@/components/Tooltip";
  */
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const playerRef = useRef<YT.Player | null>(null);
-  const lastTimeRef = useRef<number>(0);
-
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const rotationRef = useRef<number>(0);
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -40,42 +38,21 @@ const MusicPlayer = () => {
    * 음악의 재생, 일시정지를 담당하는 부분
    */
   useEffect(() => {
-    const loadPlayer = () => {
-      playerRef.current = new YT.Player("youtube-player", {
-        height: "0",
-        width: "0",
-        videoId: "96tZjdFqcV0",
-        playerVars: {
-          autoplay: 0,
-          controls: 1,
-          loop: 1,
-          playlist: "96tZjdFqcV0",
-        },
-      });
-    };
-
-    if (!window.YT) {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode!.insertBefore(tag, firstScriptTag);
-      window.onYouTubeIframeAPIReady = loadPlayer;
-    } else {
-      loadPlayer();
-    }
+    audioRef.current = new Audio(
+      `${
+        process.env.NODE_ENV === "production" ? "/findsy" : ""
+      }/audios/backgroundmusic.mp3`
+    );
+    audioRef.current.loop = true;
 
     return () => {
-      if (playerRef.current && playerRef.current.destroy) {
-        playerRef.current.destroy();
-      }
+      audioRef.current?.pause();
+      audioRef.current = null;
     };
   }, []);
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      {/* 재생할 영상 */}
-      <div id="youtube-player" />
-
       {/* 돌아가는 LP 이미지 */}
       <Tooltip text={isPlaying ? "음악 정지하기" : "음악 재생하기"}>
         <button
@@ -85,16 +62,14 @@ const MusicPlayer = () => {
             "hover:cursor-pointer w-[100px] h-[100px] relative"
           )}
           onClick={() => {
-            const player = playerRef.current;
-            if (!player) return;
+            const audio = audioRef.current;
+            if (!audio) return;
 
             if (isPlaying) {
-              lastTimeRef.current = player.getCurrentTime();
-              player.pauseVideo();
+              audio.pause();
               setIsPlaying(false);
             } else {
-              player.seekTo(lastTimeRef.current, true);
-              player.playVideo();
+              audio.play();
               setIsPlaying(true);
             }
           }}
