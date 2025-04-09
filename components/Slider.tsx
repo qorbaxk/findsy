@@ -34,6 +34,7 @@ const Slider = ({
       loop={isLoop}
       navigation
       modules={[Navigation]}
+      className="w-full h-full"
     >
       {items.map((item, idx) => (
         <SwiperSlide key={`swiper_slide_${idx}`}>{item}</SwiperSlide>
