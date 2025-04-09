@@ -19,7 +19,7 @@ const Navbar = () => {
  * 들어갈 메뉴리스트
  */
 const MENULIST = [
-  { href: `/`, name: "Home" },
+  { href:  process.env.NODE_ENV === "production" ? 'https://qorbaxk.github.io/findsy/':'/', name: "Home" },
   { href: `/projects`, name: "Projects" },
   { href: `/contact`, name: "Contact" },
 ];
