@@ -77,7 +77,7 @@ const ProjectNode = ({
       {/* 오른쪽 영역 */}
       <div className="col-span-2 flex flex-col gap-4 grow">
         <div ref={topRef}>
-          <div className="flex flex-row justify-between items-end">
+          <div className="flex flex-row justify-between items-end pb-2">
             <div>
               {/* 프로젝트 상세 타이틀 */}
               <span className="text-xs">{detailTitle}</span>
