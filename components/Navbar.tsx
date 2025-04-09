@@ -7,7 +7,7 @@ import Link from "next/link";
  */
 const Navbar = () => {
   return (
-    <nav className="fixed top-4 right-4 flex flex-row gap-4 text-sm">
+    <nav className="fixed top-4 right-4 flex flex-row gap-4 text-sm z-10">
       {MENULIST.map((item, idx) => (
         <Menu key={`navigation_menu_list_${idx}`} {...item} />
       ))}

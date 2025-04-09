@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import MusicPlayerWrapper from "@/components/MusicPlayerWrapper";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title:
@@ -57,7 +58,11 @@ export default function RootLayout({
         </video>
 
         {/* 자식 페이지들 */}
-        <section className="relative z-0">{children}</section>
+        <section className="relative z-0">
+          {/* 네비게이션 */}
+          <Navbar />
+          {children}
+        </section>
 
         {/* 전역 뮤직플레이어 */}
         <MusicPlayerWrapper />
