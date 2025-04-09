@@ -5,6 +5,30 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Pretendard";
+  src: url("./fonts/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./fonts/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("./fonts/Pretendard-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 :root {
@@ -29,12 +53,20 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Mediasansextended, Arial, Helvetica, sans-serif;
+  font-family: Pretendard, Arial, Helvetica, sans-serif;
+}
+
+.font-Mediasansextended {
+  font-family: Mediasansextended;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-fade-in {
@@ -43,15 +75,14 @@ body {
 
 /* 스크롤바의 폭 너비 */
 .scrollbar::-webkit-scrollbar {
-  width: 6px;  
+  width: 6px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.3); /* 스크롤바 색상 */
   border-radius: 6px; /* 스크롤바 둥근 테두리 */
-  
 }
 
 .scrollbar::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);  /*스크롤바 뒷 배경 색상*/
+  background: rgba(0, 0, 0, 0); /*스크롤바 뒷 배경 색상*/
 }

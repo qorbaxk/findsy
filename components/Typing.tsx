@@ -14,6 +14,7 @@ const Typing = ({ sequence, repeat = 1 }: ITyping) => {
       speed={50}
       repeat={repeat}
       style={{ whiteSpace: "pre-line" }}
+      className="font-Mediasansextended"
     />
   );
 };
