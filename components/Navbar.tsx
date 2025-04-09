@@ -15,14 +15,13 @@ const Navbar = () => {
   );
 };
 
-const basePath = process.env.NODE_ENV === "production" ? "/findsy" : "";
 /**
  * 들어갈 메뉴리스트
  */
 const MENULIST = [
-  { href: `${basePath}/`, name: "Home" },
-  { href: `${basePath}/projects`, name: "Projects" },
-  { href: `${basePath}/contact`, name: "Contact" },
+  { href: `/`, name: "Home" },
+  { href: `/projects`, name: "Projects" },
+  { href: `/contact`, name: "Contact" },
 ];
 
 /**
