@@ -7,7 +7,7 @@ import Link from "next/link";
  */
 const Navbar = () => {
   return (
-    <nav className="fixed top-4 right-4 flex flex-row gap-4 text-sm">
+    <nav className="fixed top-4 right-4 flex flex-row gap-4 text-sm z-10">
       {MENULIST.map((item, idx) => (
         <Menu key={`navigation_menu_list_${idx}`} {...item} />
       ))}
@@ -34,7 +34,7 @@ const Menu = ({ href, name }: { href: string; name: string }) => {
     <span className="relative group">
       <Link
         href={href}
-        className="group-hover:text-black transition-colors duration-300"
+        className="group-hover:text-black transition-colors duration-300 font-Mediasansextended"
       >
         {name}
         <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
