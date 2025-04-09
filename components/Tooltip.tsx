@@ -12,7 +12,7 @@ interface ITooltip {
  */
 const Tooltip = ({ text, children }: ITooltip) => {
   return (
-    <div className="relative group inline-block">
+    <div className="relative group inline-block hover:cursor-pointer">
       {/* 노드 */}
       {children}
       {/* 툴팁 */}
