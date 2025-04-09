@@ -1,4 +1,4 @@
-import Img from "@/components/Img";
+// import Img from "@/components/Img";
 import Typing from "@/components/Typing";
 
 export default function Home() {
@@ -11,13 +11,13 @@ export default function Home() {
       </h1>
 
       {/* 하단 화살표 */}
-      <Img
+      {/* <Img
         src={"/images/down_arrow.svg"}
         alt="아래로 스크롤을 해주세요."
         width={40}
         height={40}
         className="fixed bottom-4 left-1/2 -translate-x-1/2 animate-bounce"
-      />
+      /> */}
     </>
   );
 }
