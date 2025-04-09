@@ -189,4 +189,11 @@ const PROJECTLIST = [
     tags={[]}
     description=""
   />,
+  // 3.
+  <div
+    key={`projects...ing`}
+    className="flex justify-center items-center h-full"
+  >
+    죄송합니다. 이전에 했던 프로젝트들은 아직 추가 중입니다...
+  </div>,
 ];
