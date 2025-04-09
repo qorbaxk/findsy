@@ -10,6 +10,7 @@ import Tooltip from "@/components/Tooltip";
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const playerRef = useRef<YT.Player | null>(null);
+  const lastTimeRef = useRef<number>(0);
 
   const rotationRef = useRef<number>(0);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -50,13 +51,6 @@ const MusicPlayer = () => {
           loop: 1,
           playlist: "0zfwYWHRWhQ",
         },
-        events: {
-          onReady: (event: YT.OnReadyEvent) => {
-            if (isPlaying) {
-              event.target.playVideo();
-            }
-          },
-        },
       });
     };
 
@@ -75,7 +69,7 @@ const MusicPlayer = () => {
         playerRef.current.destroy();
       }
     };
-  }, [isPlaying]);
+  }, []);
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
@@ -90,7 +84,20 @@ const MusicPlayer = () => {
             // 호버시 포인터 처리
             "hover:cursor-pointer w-[100px] h-[100px] relative"
           )}
-          onClick={() => setIsPlaying((pre) => !pre)}
+          onClick={() => {
+            const player = playerRef.current;
+            if (!player) return;
+
+            if (isPlaying) {
+              lastTimeRef.current = player.getCurrentTime();
+              player.pauseVideo();
+              setIsPlaying(false);
+            } else {
+              player.seekTo(lastTimeRef.current, true);
+              player.playVideo();
+              setIsPlaying(true);
+            }
+          }}
         >
           <div
             ref={overlayRef}
