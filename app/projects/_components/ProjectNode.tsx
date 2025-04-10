@@ -56,7 +56,7 @@ const ProjectNode = ({
     if (topRef.current) {
       const topHeight = topRef.current.offsetHeight;
       // 창크기 - 여백 및 패딩 - 작성된 상단 내용
-      const available = window.innerHeight - 257 - topHeight ;
+      const available = window.innerHeight - 257 - topHeight;
       setMaxHeight(available);
     }
   }, [topRef]);
@@ -72,7 +72,13 @@ const ProjectNode = ({
           "col-span-1 flex items-center justify-center relative shrink-0"
         )}
       >
-        <Img src={img.src} alt={img.alt} fill className="object-contain" />
+        <Img
+          src={img.src}
+          alt={img.alt}
+          fill
+          className="object-contain"
+          sizes="(max-width:768px) 100vw, 50vw"
+        />
       </div>
       {/* 오른쪽 영역 */}
       <div className="col-span-2 flex flex-col gap-4 grow">
@@ -93,7 +99,10 @@ const ProjectNode = ({
           <Tag items={tags} />
         </div>
         {/* 프로젝트 내용 */}
-        <div className="grow overflow-y-auto scrollbar text-justify pr-2" style={{ maxHeight }}>
+        <div
+          className="grow overflow-y-auto scrollbar text-justify pr-2"
+          style={{ maxHeight }}
+        >
           {description}
         </div>
       </div>
