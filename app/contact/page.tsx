@@ -64,6 +64,7 @@ export default function Contact() {
             alt="제 사진 입니다."
             width={400}
             height={400}
+            sizes="400px"
           />
         </div>
       </div>
