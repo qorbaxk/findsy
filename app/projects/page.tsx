@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import Slider from "@/components/Slider";
 import ProjectNode from "./_components/ProjectNode";
+import ProjectSkeleton from "./_components/ProjectSkeleton";
 
 /**
  * 프로젝트 페이지
@@ -13,7 +15,9 @@ export default function Projects() {
           Projects
         </h2>
         {/* 나열할 프로젝트 */}
-        <Slider items={PROJECTLIST} />
+        <Suspense fallback={<ProjectSkeleton />}>
+          <Slider items={PROJECTLIST} />
+        </Suspense>
       </div>
     </div>
   );
