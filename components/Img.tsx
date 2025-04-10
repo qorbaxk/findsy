@@ -14,6 +14,7 @@ const Img = (props: ImageProps) => {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      {/* 스켈레톤 처리 */}
       {isLoading && (
         <div
           style={{
@@ -25,6 +26,7 @@ const Img = (props: ImageProps) => {
           }}
         />
       )}
+      {/* 이미지 */}
       <Image
         {...props}
         src={`${BASE_PATH}${props.src}`}
