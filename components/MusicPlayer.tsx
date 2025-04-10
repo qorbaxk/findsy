@@ -57,8 +57,8 @@ const MusicPlayer = () => {
       <Tooltip text={isPlaying ? "음악 정지하기" : "음악 재생하기"}>
         <button
           type="button"
+          aria-label={isPlaying ? "음악 정지하기" : "음악 재생하기"}
           className={classNames(
-            // 호버시 포인터 처리
             "hover:cursor-pointer w-[100px] h-[100px] relative"
           )}
           onClick={() => {
@@ -80,7 +80,7 @@ const MusicPlayer = () => {
             style={{
               backgroundImage: `url('${
                 process.env.NODE_ENV === "production" ? "/findsy" : ""
-              }/images/lp.png')`,
+              }/images/lp.webp')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
