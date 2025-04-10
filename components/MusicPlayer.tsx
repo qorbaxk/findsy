@@ -80,7 +80,7 @@ const MusicPlayer = () => {
             style={{
               backgroundImage: `url('${
                 process.env.NODE_ENV === "production" ? "/findsy" : ""
-              }/images/lp.png')`,
+              }/images/lp.webp')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

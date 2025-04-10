@@ -60,7 +60,7 @@ export default function Contact() {
         </div>
         <div className="absolute bottom-0 right-0">
           <Img
-            src={"/images/me.png"}
+            src={"/images/me.webp"}
             alt="제 사진 입니다."
             width={400}
             height={400}
