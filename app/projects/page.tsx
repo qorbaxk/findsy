@@ -179,15 +179,113 @@ const PROJECTLIST = [
   <ProjectNode
     key={`블랙뱃지 프로젝트`}
     title={"블랙뱃지 CRM"}
-    detailTitle="결혼정보회사 회원 정보 관리 시스템"
+    detailTitle="결혼정보회사 회원 관리 시스템"
     startAt="2024.03"
     endAt="2024.06"
     img={{
       src: "/images/projects/blackbadge.png",
       alt: "블랙뱃지 프로젝트 이미지",
     }}
-    tags={[]}
-    description=""
+    tags={[
+      "블랙뱃지",
+      "결혼정보회사",
+      "CRM",
+      "고객 관리",
+      "멤버십 관리",
+      "매출 및 일정 관리",
+      "공통 컴포넌트 사용",
+      "관리도구",
+      "백오피스",
+      "Next.js 14",
+      "API Routes",
+      "Typescript",
+      "React-Hook-Form",
+      "TailwindCSS",
+      "TypeORM",
+      "Maria DB",
+      "풀스택 개발",
+      "카카오톡 알림톡",
+      "모바일 카드 개발",
+      "엑셀다운로드",
+    ]}
+    description={
+      <div className="flex flex-col gap-4">
+        {/* 프로젝트 소개 */}
+        <div className="bg-yellow-50 rounded-lg py-2 px-4 flex flex-col gap-1">
+          <p className="font-medium text-xl">📎 프로젝트 소개</p>
+          <p className="text-md flex flex-col">
+            <span>
+              기존에 노션으로 관리하던 고객사 측에서 자기들 만의 시스템을 원하여
+              매출, 일정, 고객, 매니저, 멤버십 등을 통합 관리하기 위한 CRM
+              시스템을 개발했습니다.
+            </span>
+            <br />
+            <span className="font-medium">✤ 투입 인력</span>
+            <span>
+              고객사 측에서 JS로 전체를 개발하기를 원하여, 요청에 따라 2명의
+              프론트엔드 개발자가 풀스택 개발 전반을 직접 수행하였습니다.
+            </span>
+            <span>• DB 설계 및 TypeORM을 통한 엔티티 매핑</span>
+            <span>• Next.js API Routes를 이용한 API 서버 구현</span>
+            <br />
+            <span className="font-medium">✤ 기술스택</span>
+            <span>• Frontend: Next.js 14, React, Typescript</span>
+            <span>• 상태 관리 및 비동기 처리: React-Query, Recoil</span>
+            <span>• Backend: Next.js API Routes, TypeORM, Maria DB</span>
+          </p>
+        </div>
+
+        {/* 문제 해결 경험 */}
+        <div className="bg-yellow-50 rounded-lg py-2 px-4 flex flex-col gap-1">
+          <p className="font-medium text-xl">🔥 문제 해결 경험</p>
+          <p className="text-md flex flex-col">
+            <span>
+              <b>풀스택 개발은 이번 프로젝트가 처음이었습니다.</b>
+              <br />
+              게다가 고객사의 <b>요구사항이 불명확하고 기획 문서가 부실한 상태</b>였기 때문에,
+              기능 개발 이전에 먼저 흐름을 명확히 정리해야 했습니다. 저와 다른
+              개발자 2명은 <b>직접 플로우차트를 작성하며 요구사항을 정리</b>
+              하고, 이를 기반으로 <b>ERD를 설계</b>하며 전체 시스템 구조를
+              구성했습니다.
+              <br />
+              <br />
+              백엔드 구현에는 <b>TypeORM을 처음 도입</b>했는데, 사용자가 많지
+              않은 라이브러리이다 보니{" "}
+              <b>초기 환경 설정 과정에서 많은 시행착오를 겪었습니다.</b>
+              {" "}초기에는 ORM을 제대로 활용하지 못해{" "}
+              <b>직접 SQL로 쿼리를 짜고 테이블을 생성</b>하며 작업했으나,{" "}
+              <b>
+                다른 팀 과장님의 도움으로 TypeORM을 익힌 뒤에는 엔티티 기반
+                설계를 수월하게 수행
+              </b>
+              할 수 있게 되었습니다.
+              <br />
+              <br />
+              이후에는 <b>복잡한 테이블 간 조인 및 데이터 가공을 통해</b> 매출
+              데이터를 계산하고 응답하는 등,{" "}
+              <b>비즈니스 로직 중심의 API 구현까지 직접 수행</b>할 수
+              있었습니다.
+            </span>
+          </p>
+        </div>
+
+        {/* 성과 및 결과 */}
+        <div className="bg-yellow-50 rounded-lg py-2 px-4 flex flex-col gap-1">
+          <p className="font-medium text-xl">✨ 성과 및 결과</p>
+          <p className="text-md flex flex-col">
+            <span>
+              <b>기획, 설계, API 개발, 화면 구성까지</b> 모든 단계를 직접 이해하고 주도적으로 처리함으로써, <b>프로젝트의 완성도를 높일 수 있었습니다.</b>
+              <br /><br />
+              특히, <b>인력이 제한된 상황</b>에서도 이전 프로젝트에서 제작한 {" "}<b>&#39;공통 컴포넌트&#39;</b>{" "}를 적극 활용하여 <b>프론트엔드 UI를 빠르게 구축</b>할 수 있었고, 그 결과 <b>일정 지연 없이 모든 요구사항을 성공적으로 마무리</b>할 수 있었습니다.
+              <br /><br />
+              또한 <b>단위 테스트 및 통합 테스트에서도</b> 결함률이 <b>사내 전체 프로젝트 중 가장 낮은 수준</b>을 기록하여 <b>품질 면에서도 우수한 결과</b>를 도출하였습니다. 이는 <b>고객사의 높은 만족도로 이어져 후속 프로젝트 계약까지 연결</b>되는 성과로 이어졌습니다.
+              <br /><br />
+              해당 프로젝트는 <b>사내에서도 코드 품질과 구성 방식에서 좋은 본보기</b>가 되었으며, <b>다른 개발자들이 참고하는 사례로 공유</b>되기도 했습니다.
+            </span>
+          </p>
+        </div>
+      </div>
+    }
   />,
   // 3.
   <div
