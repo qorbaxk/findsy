@@ -31,7 +31,7 @@ const PROJECTLIST = [
     startAt="2024.06"
     endAt="2025.03"
     img={{
-      src: "/images/projects/kbsmc.png",
+      src: "/images/projects/kbsmc.webp",
       alt: "강북삼성병원 프로젝트 이미지",
     }}
     tags={[
@@ -188,7 +188,7 @@ const PROJECTLIST = [
     startAt="2024.03"
     endAt="2024.06"
     img={{
-      src: "/images/projects/blackbadge.png",
+      src: "/images/projects/blackbadge.webp",
       alt: "블랙뱃지 프로젝트 이미지",
     }}
     tags={[
@@ -318,7 +318,7 @@ const PROJECTLIST = [
     startAt="2023.10"
     endAt="2024.02"
     img={{
-      src: "/images/projects/commoncomponent.png",
+      src: "/images/projects/commoncomponent.webp",
       alt: "공통 컴포넌트 프로젝트 이미지",
     }}
     tags={[
@@ -477,7 +477,7 @@ const PROJECTLIST = [
     startAt="2023.06"
     endAt="2023.10"
     img={{
-      src: "/images/projects/rezn.png",
+      src: "/images/projects/rezn.webp",
       alt: "두산 리즌마켓 프로젝트 이미지",
     }}
     tags={[
