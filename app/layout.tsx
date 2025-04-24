@@ -4,6 +4,7 @@ import MusicPlayerWrapper from "@/components/MusicPlayerWrapper";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
+  metadataBase:new URL("https://qorbaxk.github.io/findsy/"),
   title:
     "프론트엔드 개발자 백승연의 포트폴리오 | Frontend Developer Seungyeon Baek",
   description:
@@ -20,12 +21,16 @@ export const metadata: Metadata = {
     "Portfolio",
     "Web Development",
   ],
+  robots:"index, follow",
   authors: [{ name: "백승연" }],
   openGraph: {
     title:
       "프론트엔드 개발자 백승연의 포트폴리오 | Frontend Developer Seungyeon Baek",
     description:
       "프론트엔드 개발자 백승연의 포트폴리오 사이트입니다. Portfolio site of frontend developer Seungyeon Baek.",
+    url:"https://qorbaxk.github.io/findsy/",
+    images: process.env.NODE_ENV === "production" ? "/findsy/images/thumbnail.webp" : "/images/thumbnail.webp",
+    siteName:"find seungyeon",
     type: "website",
     locale: "ko_KR",
   },
@@ -39,8 +44,18 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="relative w-full min-h-screen overflow-hidden">
-        {/* 고정된 배경 비디오 */}
-        <video
+        {/* 자식 페이지들 */}
+        <section className="relative z-0">
+          {/* 네비게이션 */}
+          <Navbar />
+          {children}
+        </section>
+
+        {/* 전역 뮤직플레이어 */}
+        <MusicPlayerWrapper />
+
+         {/* 고정된 배경 비디오 */}
+         <video
           loop
           autoPlay
           muted
@@ -57,16 +72,6 @@ export default function RootLayout({
             type="video/mp4"
           />
         </video>
-
-        {/* 자식 페이지들 */}
-        <section className="relative z-0">
-          {/* 네비게이션 */}
-          <Navbar />
-          {children}
-        </section>
-
-        {/* 전역 뮤직플레이어 */}
-        <MusicPlayerWrapper />
       </body>
     </html>
   );
