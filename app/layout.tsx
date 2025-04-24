@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
   },
+  alternates:{
+    canonical:"https://qorbaxk.github.io/findsy/",
+  }
 };
 
 export default function RootLayout({
