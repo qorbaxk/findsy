@@ -79,7 +79,14 @@ export const metadata: Metadata = {
     description:
       "프론트엔드 개발자 백승연의 포트폴리오 사이트입니다. Portfolio site of frontend developer Seungyeon Baek.",
     url:"https://qorbaxk.github.io/findsy/",
-    images: process.env.NODE_ENV === "production" ? "/findsy/images/thumbnail.webp" : "/images/thumbnail.webp",
+    images: [
+      {
+        url: "https://qorbaxk.github.io/findsy/images/thumbnail.webp",
+        width: 1200,
+        height: 630,
+        alt: "프론트엔드 개발자 백승연의 포트폴리오 썸네일"
+      }
+    ],
     siteName:"find seungyeon",
     type: "website",
     locale: "ko_KR",
