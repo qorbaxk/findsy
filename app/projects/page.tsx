@@ -8,10 +8,10 @@ import ProjectSkeleton from "./_components/ProjectSkeleton";
  */
 export default function Projects() {
   return (
-    <div className="p-16 h-screen">
-      <div className="opacity-0 animate-fade-in transition-opacity duration-700 bg-white/60 border-[1px] border-solid border-white/80 rounded-[11px] p-4 h-full flex flex-col">
+    <div className="p-4 md:p-16 h-screen pt-16 md:pt-16">
+      <div className="opacity-0 animate-fade-in transition-opacity duration-700 bg-white/60 border-[1px] border-solid border-white/80 rounded-[11px] p-2 md:p-4 h-full flex flex-col">
         {/* 하위 제목 */}
-        <h2 className="text-4xl border-b-[1px] border-b-solid text-center pb-2 font-Mediasansextended">
+        <h2 className="text-2xl md:text-4xl border-b-[1px] border-b-solid text-center pb-2 font-Mediasansextended">
           Projects
         </h2>
         {/* 나열할 프로젝트 */}

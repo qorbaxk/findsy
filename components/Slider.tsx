@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect, useRef } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperClass } from "swiper";
@@ -32,6 +32,8 @@ const Slider = ({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const swiperRef = useRef<SwiperClass | null>(null);
+  
   /**
    * 슬라이드 위치 기억하는 query string
    */
@@ -60,6 +62,21 @@ const Slider = ({
   };
 
   /**
+   * 터치 이벤트 핸들러 - Tag 영역에서 스크롤할 때 Swiper 비활성화
+   */
+  const handleTouchStart = (swiper: SwiperClass, event: TouchEvent | MouseEvent | PointerEvent) => {
+    const target = event.target as HTMLElement;
+    const tagContainer = target.closest('.tag-container');
+    if (tagContainer) {
+      swiper.allowTouchMove = false;
+    }
+  };
+
+  const handleTouchEnd = (swiper: SwiperClass) => {
+    swiper.allowTouchMove = true;
+  };
+
+  /**
    * 슬라이드 위치 기억이 client 가 하고 있기 때문에 마운트 됐을 때만 보이도록 설정
    */
   if (!hasMounted) return null;
@@ -74,6 +91,11 @@ const Slider = ({
       className="w-full h-full"
       initialSlide={initialSlide}
       onSlideChange={handleSlideChange}
+      onSwiper={(swiper) => {
+        swiperRef.current = swiper;
+      }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {items.map((item, idx) => (
         <SwiperSlide key={`swiper_slide_${idx}`}>{item}</SwiperSlide>
