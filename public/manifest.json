@@ -1,0 +1,29 @@
+{
+  "name": "프론트엔드 개발자 백승연 포트폴리오",
+  "short_name": "백승연 포트폴리오",
+  "description": "React, Next.js, TypeScript를 활용한 프론트엔드 개발자 백승연의 포트폴리오 사이트",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/thumbnail.webp",
+      "sizes": "1200x630",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/me.webp",
+      "sizes": "400x400",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["technology", "business", "productivity"],
+  "lang": "ko",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+} 

@@ -1,25 +1,64 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import Slider from "@/components/Slider";
 import ProjectNode from "./_components/ProjectNode";
 import ProjectSkeleton from "./_components/ProjectSkeleton";
+import ProjectStructuredData from "@/components/ProjectStructuredData";
+
+export const metadata: Metadata = {
+  title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
+  description: "프론트엔드 개발자 백승연의 프로젝트 포트폴리오입니다. 강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+  keywords: [
+    "프론트엔드 프로젝트",
+    "웹 개발 프로젝트",
+    "React 프로젝트",
+    "Next.js 프로젝트",
+    "강북삼성병원",
+    "블랙뱃지 CRM",
+    "리즌마켓",
+    "포트폴리오 프로젝트",
+    "웹 개발 경험"
+  ],
+  openGraph: {
+    title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
+    description: "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+    type: "website",
+    locale: "ko_KR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
+    description: "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+  },
+};
 
 /**
  * 프로젝트 페이지
  */
 export default function Projects() {
   return (
-    <div className="p-4 md:p-16 h-screen pt-16 md:pt-16">
-      <div className="opacity-0 animate-fade-in transition-opacity duration-700 bg-white/60 border-[1px] border-solid border-white/80 rounded-[11px] p-2 md:p-4 h-full flex flex-col">
-        {/* 하위 제목 */}
-        <h2 className="text-2xl md:text-4xl border-b-[1px] border-b-solid text-center pb-2 font-Mediasansextended">
-          Projects
-        </h2>
-        {/* 나열할 프로젝트 */}
-        <Suspense fallback={<ProjectSkeleton />}>
-          <Slider items={PROJECTLIST} />
-        </Suspense>
-      </div>
-    </div>
+    <>
+      {/* 구조화된 데이터 */}
+      <ProjectStructuredData />
+      <main role="main" aria-label="프로젝트 포트폴리오">
+        <div className="p-4 md:p-16 h-screen pt-16 md:pt-16">
+          <article className="opacity-0 animate-fade-in transition-opacity duration-700 bg-white/60 border-[1px] border-solid border-white/80 rounded-[11px] p-2 md:p-4 h-full flex flex-col">
+            {/* 하위 제목 */}
+            <header>
+              <h2 className="text-2xl md:text-4xl border-b-[1px] border-b-solid text-center pb-2 font-Mediasansextended">
+                Projects
+              </h2>
+            </header>
+            {/* 나열할 프로젝트 */}
+            <section aria-label="프로젝트 목록">
+              <Suspense fallback={<ProjectSkeleton />}>
+                <Slider items={PROJECTLIST} />
+              </Suspense>
+            </section>
+          </article>
+        </div>
+      </main>
+    </>
   );
 }
 
