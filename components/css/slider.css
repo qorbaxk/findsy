@@ -12,3 +12,23 @@
 .swiper-button-prev::after {
   font-size: 16px;
 }
+
+/* 모바일에서 네비게이션 버튼을 바깥쪽으로 이동 */
+@media (max-width: 768px) {
+  .swiper-button-next {
+    right: -5px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .swiper-button-prev {
+    left: -5px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 12px;
+  }
+}

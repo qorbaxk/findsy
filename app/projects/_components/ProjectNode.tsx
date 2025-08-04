@@ -64,12 +64,12 @@ const ProjectNode = ({
   return (
     <div
       key={key}
-      className="w-full h-full px-[50px] py-4 grid grid-cols-3 gap-4"
+      className="w-full h-full px-4 md:px-[50px] py-2 md:py-4 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 overflow-y-auto md:overflow-y-visible"
     >
       {/* 왼쪽 영역 */}
       <div
         className={classNames(
-          "col-span-1 flex items-center justify-center relative shrink-0"
+          "col-span-1 md:col-span-1 flex items-center justify-center relative shrink-0 h-48 md:h-auto"
         )}
       >
         <Img
@@ -81,14 +81,14 @@ const ProjectNode = ({
         />
       </div>
       {/* 오른쪽 영역 */}
-      <div className="col-span-2 flex flex-col gap-4 grow">
+      <div className="col-span-1 md:col-span-2 flex flex-col gap-2 md:gap-4 grow">
         <div ref={topRef}>
-          <div className="flex flex-row justify-between items-end pb-2">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end pb-2 gap-2 md:gap-0">
             <div>
               {/* 프로젝트 상세 타이틀 */}
               <span className="text-xs">{detailTitle}</span>
               {/* 프로젝트 타이틀 */}
-              <p className="text-3xl font-bold">{title}</p>
+              <p className="text-xl md:text-3xl font-bold">{title}</p>
             </div>
             {/* 프로젝트 기간 */}
             <span className="text-sm">
@@ -100,8 +100,8 @@ const ProjectNode = ({
         </div>
         {/* 프로젝트 내용 */}
         <div
-          className="grow overflow-y-auto scrollbar text-justify pr-2"
-          style={{ maxHeight }}
+          className="grow md:overflow-y-auto pc-scrollbar text-justify pr-1 md:pr-2 text-sm md:text-base"
+          style={{ maxHeight: window.innerWidth < 768 ? 'auto' : maxHeight }}
         >
           {description}
         </div>

@@ -9,9 +9,12 @@ import Tooltip from "@/components/Tooltip";
  */
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rotationRef = useRef<number>(0);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   /**
    * LP 각도를 위한 설정
@@ -35,6 +38,22 @@ const MusicPlayer = () => {
   }, [isPlaying]);
 
   /**
+   * 화면 크기 감지
+   */
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
+
+  /**
    * 음악의 재생, 일시정지를 담당하는 부분
    */
   useEffect(() => {
@@ -48,29 +67,53 @@ const MusicPlayer = () => {
     return () => {
       audioRef.current?.pause();
       audioRef.current = null;
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, []);
 
   return (
-    <div className="fixed bottom-2 right-2 z-50">
+    <div className="fixed bottom-2 right-0 z-50">
       {/* 돌아가는 LP 이미지 */}
-      <Tooltip text={isPlaying ? "음악 정지하기" : "음악 재생하기"}>
+      <Tooltip text={
+        !isExpanded ? "뮤직플레이어 열기" :
+        isPlaying ? "음악 정지하기" : "음악 재생하기"
+      }>
         <button
           type="button"
-          aria-label={isPlaying ? "음악 정지하기" : "음악 재생하기"}
+          aria-label={
+            !isExpanded ? "뮤직플레이어 열기" :
+            isPlaying ? "음악 정지하기" : "음악 재생하기"
+          }
           className={classNames(
-            "hover:cursor-pointer w-[100px] h-[100px] relative"
+            "hover:cursor-pointer w-[100px] h-[100px] relative transition-transform duration-300 ease-in-out",
+            isMobile 
+              ? (isExpanded ? "transform translate-x-0" : "transform translate-x-[67px]")
+              : "transform translate-x-0"
           )}
           onClick={() => {
-            const audio = audioRef.current;
-            if (!audio) return;
-
-            if (isPlaying) {
-              audio.pause();
-              setIsPlaying(false);
+            if (isMobile && !isExpanded) {
+              // 모바일에서만 확장 로직
+              setIsExpanded(true);
+              if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+              }
+              timeoutRef.current = setTimeout(() => {
+                setIsExpanded(false);
+              }, 3000);
             } else {
-              audio.play();
-              setIsPlaying(true);
+              // PC에서는 바로 음악 재생/정지, 모바일에서는 확장된 상태에서 음악 재생/정지
+              const audio = audioRef.current;
+              if (!audio) return;
+
+              if (isPlaying) {
+                audio.pause();
+                setIsPlaying(false);
+              } else {
+                audio.play();
+                setIsPlaying(true);
+              }
             }
           }}
         >
