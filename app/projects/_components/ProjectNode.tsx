@@ -100,7 +100,7 @@ const ProjectNode = ({
         </div>
         {/* 프로젝트 내용 */}
         <div
-          className="grow md:overflow-y-auto md:scrollbar text-justify pr-1 md:pr-2 text-sm md:text-base"
+          className="grow md:overflow-y-auto pc-scrollbar text-justify pr-1 md:pr-2 text-sm md:text-base"
           style={{ maxHeight: window.innerWidth < 768 ? 'auto' : maxHeight }}
         >
           {description}
