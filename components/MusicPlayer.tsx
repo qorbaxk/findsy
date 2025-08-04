@@ -10,6 +10,7 @@ import Tooltip from "@/components/Tooltip";
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rotationRef = useRef<number>(0);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -35,6 +36,22 @@ const MusicPlayer = () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, [isPlaying]);
+
+  /**
+   * 화면 크기 감지
+   */
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
 
   /**
    * 음악의 재생, 일시정지를 담당하는 부분
@@ -71,12 +88,14 @@ const MusicPlayer = () => {
           }
           className={classNames(
             "hover:cursor-pointer w-[100px] h-[100px] relative transition-transform duration-300 ease-in-out",
-            isExpanded ? "transform translate-x-0" : "transform translate-x-[67px]"
+            isMobile 
+              ? (isExpanded ? "transform translate-x-0" : "transform translate-x-[67px]")
+              : "transform translate-x-0"
           )}
           onClick={() => {
-            if (!isExpanded) {
+            if (isMobile && !isExpanded) {
+              // 모바일에서만 확장 로직
               setIsExpanded(true);
-              // 3초 후 자동으로 다시 들어가기
               if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
               }
@@ -84,6 +103,7 @@ const MusicPlayer = () => {
                 setIsExpanded(false);
               }, 3000);
             } else {
+              // PC에서는 바로 음악 재생/정지, 모바일에서는 확장된 상태에서 음악 재생/정지
               const audio = audioRef.current;
               if (!audio) return;
 
