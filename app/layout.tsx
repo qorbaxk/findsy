@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 import MusicPlayerWrapper from "@/components/MusicPlayerWrapper";
 import Navbar from "@/components/Navbar";
+import StructuredData from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  metadataBase:new URL("https://qorbaxk.github.io/findsy/"),
-  title:
-    "프론트엔드 개발자 백승연의 포트폴리오 | Frontend Developer Seungyeon Baek",
+  metadataBase: new URL("https://qorbaxk.github.io/findsy/"),
+  title: {
+    default: "프론트엔드 개발자 백승연의 포트폴리오 | Frontend Developer Seungyeon Baek",
+    template: "%s | 프론트엔드 개발자 백승연 포트폴리오"
+  },
   description:
-    "프론트엔드 개발자 백승연의 포트폴리오 사이트입니다. Portfolio site of frontend developer Seungyeon Baek.",
+    "프론트엔드 개발자 백승연의 포트폴리오 사이트입니다. React, Next.js, TypeScript를 활용한 웹 개발 경험과 프로젝트를 소개합니다. Portfolio site of frontend developer Seungyeon Baek.",
   keywords: [
     "프론트엔드",
     "프론트엔드 개발자",
@@ -71,29 +74,63 @@ export const metadata: Metadata = {
     "frontend experience",
     "software engineer portfolio"
   ],
-  robots:"index, follow",
-  authors: [{ name: "백승연" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  authors: [{ name: "백승연", url: "https://qorbaxk.github.io/findsy/" }],
+  creator: "백승연",
+  publisher: "백승연",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title:
-      "프론트엔드 개발자 백승연의 포트폴리오 | Frontend Developer Seungyeon Baek",
-    description:
-      "프론트엔드 개발자 백승연의 포트폴리오 사이트입니다. Portfolio site of frontend developer Seungyeon Baek.",
-    url:"https://qorbaxk.github.io/findsy/",
+    title: "프론트엔드 개발자 백승연의 포트폴리오 | Frontend Developer Seungyeon Baek",
+    description: "프론트엔드 개발자 백승연의 포트폴리오 사이트입니다. React, Next.js, TypeScript를 활용한 웹 개발 경험과 프로젝트를 소개합니다.",
+    url: "https://qorbaxk.github.io/findsy/",
+    siteName: "find seungyeon",
     images: [
       {
         url: "https://qorbaxk.github.io/findsy/images/thumbnail.webp",
         width: 1200,
         height: 630,
-        alt: "프론트엔드 개발자 백승연의 포트폴리오 썸네일"
+        alt: "프론트엔드 개발자 백승연의 포트폴리오 썸네일",
+        type: "image/webp",
       }
     ],
-    siteName:"find seungyeon",
     type: "website",
     locale: "ko_KR",
   },
-  alternates:{
-    canonical:"https://qorbaxk.github.io/findsy/",
-  }
+  twitter: {
+    card: "summary_large_image",
+    title: "프론트엔드 개발자 백승연의 포트폴리오",
+    description: "React, Next.js, TypeScript를 활용한 프론트엔드 개발자 백승연의 포트폴리오입니다.",
+    images: ["https://qorbaxk.github.io/findsy/images/thumbnail.webp"],
+    creator: "@qorbaxk",
+  },
+  alternates: {
+    canonical: "https://qorbaxk.github.io/findsy/",
+  },
+  verification: {
+    google: "your-google-verification-code", // Google Search Console에서 받은 코드로 교체
+  },
+  category: "technology",
+  manifest: "/manifest.json",
+  other: {
+    "theme-color": "#000000",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "백승연 포트폴리오",
+  },
 };
 
 export default function RootLayout({
@@ -104,6 +141,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="relative w-full min-h-screen overflow-hidden">
+        {/* 구조화된 데이터 */}
+        <StructuredData />
+        
         {/* 자식 페이지들 */}
         <section className="relative z-0">
           {/* 네비게이션 */}
