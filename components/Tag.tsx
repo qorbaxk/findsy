@@ -28,11 +28,10 @@ const Tag = ({ items }: ITag) => {
     >
       {items.map((item, index) => (
         <span
-          className="bg-orange-100 rounded-lg px-2 py-1 text-sm whitespace-nowrap flex-shrink-0"
+          className="bg-gray-100 text-gray-700 rounded-full px-3 py-1 text-xs whitespace-nowrap flex-shrink-0 hover:bg-gray-200 transition-colors"
           key={index}
         >
-          {/* 띄어쓰기는 _ 로 대체 */}
-          #{item.replace(/\s/g, "_")}
+          {item}
         </span>
       ))}
     </div>

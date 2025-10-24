@@ -7,7 +7,8 @@ import ProjectStructuredData from "@/components/ProjectStructuredData";
 
 export const metadata: Metadata = {
   title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
-  description: "프론트엔드 개발자 백승연의 프로젝트 포트폴리오입니다. 강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+  description:
+    "프론트엔드 개발자 백승연의 프로젝트 포트폴리오입니다. 강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
   keywords: [
     "프론트엔드 프로젝트",
     "웹 개발 프로젝트",
@@ -17,18 +18,20 @@ export const metadata: Metadata = {
     "블랙뱃지 CRM",
     "리즌마켓",
     "포트폴리오 프로젝트",
-    "웹 개발 경험"
+    "웹 개발 경험",
   ],
   openGraph: {
     title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
-    description: "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+    description:
+      "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
     type: "website",
     locale: "ko_KR",
   },
   twitter: {
     card: "summary_large_image",
     title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
-    description: "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+    description:
+      "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
   },
 };
 
@@ -40,22 +43,25 @@ export default function Projects() {
     <>
       {/* 구조화된 데이터 */}
       <ProjectStructuredData />
-      <main role="main" aria-label="프로젝트 포트폴리오">
-        <div className="p-4 md:p-16 h-screen pt-16 md:pt-16">
-          <article className="opacity-0 animate-fade-in transition-opacity duration-700 bg-white/60 border-[1px] border-solid border-white/80 rounded-[11px] p-2 md:p-4 h-full flex flex-col">
-            {/* 하위 제목 */}
-            <header>
-              <h2 className="text-2xl md:text-4xl border-b-[1px] border-b-solid text-center pb-2 font-Mediasansextended">
-                Projects
-              </h2>
-            </header>
-            {/* 나열할 프로젝트 */}
-            <section aria-label="프로젝트 목록">
-              <Suspense fallback={<ProjectSkeleton />}>
-                <Slider items={PROJECTLIST} />
-              </Suspense>
-            </section>
-          </article>
+      <main role="main" aria-label="프로젝트 포트폴리오" className="pt-24">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          {/* 페이지 헤더 */}
+          <header className="text-center mb-16">
+            <h1 className="text-5xl md:text-7xl font-Mediasansextended tracking-wider mb-6">
+              Projects
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              다양한 프로젝트를 통해 성장한 개발 경험과 기술적 도전을
+              소개합니다.
+            </p>
+          </header>
+
+          {/* 프로젝트 목록 */}
+          <section aria-label="프로젝트 목록" className="space-y-24">
+            <Suspense fallback={<ProjectSkeleton />}>
+              <Slider items={PROJECTLIST} />
+            </Suspense>
+          </section>
         </div>
       </main>
     </>
@@ -71,8 +77,8 @@ const PROJECTLIST = [
     key={`AI 상세설명 생성 에디터 프로젝트`}
     title={"셀핏: AI 상세설명 생성 에디터"}
     detailTitle="상품 상세설명을 AI로 자동 생성하는 에디터"
-    startAt="2024.06"
-    endAt="2025.03"
+    startAt="2025.05"
+    endAt="진행중"
     img={[
       {
         src: "/images/projects/sellfit1.webp",
@@ -84,12 +90,22 @@ const PROJECTLIST = [
       },
     ]}
     tags={[
-      "셀핏",
+      "셀핏 AI",
+      "AI agent",
       "AI 상세설명 생성 에디터",
       "상품 상세설명 자동 생성",
-      "AI 에디터",
-      "상품 상세설명 자동 생성",
-      "상품 상세설명 자동 생성",
+      "Amazon Bedrock",
+      "Nest.js",
+      "Kotiln",
+      "React",
+      "Vite",
+      "TypeScript",
+      "React Query",
+      "Zustand",
+      "Styled-components",
+      "Redis",
+      "AWS S3",
+      "AWS Bedrock",
     ]}
     description={
       <div className="flex flex-col gap-4">
@@ -98,32 +114,33 @@ const PROJECTLIST = [
           <p className="font-medium text-xl">📎 프로젝트 소개</p>
           <p className="text-md flex flex-col">
             <span>
-              기존에 유선 전화로만 가능했던 건강검진 예약 시스템을{" "}
-              <b>웹 기반으로 전환</b>하여, 수진자가 직접 검진 일정을 예약할 수
-              있는 <b>셀프 예약 서비스</b>를 개발했습니다. 해당 프로젝트는{" "}
-              <b>삼성 계열사 및 협력사 임직원 대상의 B2B 시스템</b>과{" "}
-              <b>국가 건강검진 대상자의 B2C 시스템</b>을 모두 포함하며, 이를
-              관리하기 위한 <b>백오피스&#40;관리도구&#41;</b> 개발도
-              병행하였습니다.
+              플레이오토에서 2026년 상용화를 목표로 진행 중인{" "}
+              <b>AI 기반 상품 상세설명 이미지 생성 에디터 서비스</b>입니다.
+              사용자는 상품명, 이미지, 카테고리 등의 기본 정보만 입력하면,{" "}
+              <b>AWS Bedrock 기반 AI</b>가 해당 상품에 어울리는 상세설명
+              이미지를 자동으로 생성해줍니다. 생성된 결과물은 에디터 내에서
+              자유롭게 편집할 수 있으며, “제디터”나 “미리캔버스”와 같은{" "}
+              <b>디자인 에디터에 AI 기능을 결합한 형태</b>입니다.
             </span>
             <br />
             <span className="font-medium">✤ 투입 인력 및 협업</span>
             <span>
-              프론트엔드 2명, 백엔드 1명으로 구성된 팀에 더해, 삼성SDS 소속
-              개발자들과의 <b>외부 협업</b>을 통해 병원 OCS 시스템
-              연동&#40;예약/문진/결과 등&#41;을 위한 API 개발이 병행되었습니다.
-              사내 인력이 아닌 <b>외부 협력 개발자들과의 소통과 업무 분담</b>을
-              통해
-              <b>협업 능력과 커뮤니케이션 스킬</b>을 크게 향상시킬 수
-              있었습니다.
+              프론트엔드 2명, 백엔드 2명, 기획 1명, 디자인 2명, 퍼블 2명으로
+              구성된 팀에서{" "}
+              <b>프론트엔드 개발을 중심으로 백엔드와 인프라 개발까지 병행</b>
+              했습니다. Jira 기반 애자일 스프린트로 업무를 관리했습니다.
             </span>
             <br />
             <span className="font-medium">✤ 기술스택</span>
-            <span>• Frontend: Next.js 14, React, Typescript</span>
-            <span>• 상태 관리 및 비동기 처리: React-Query, Recoil</span>
             <span>
-              • 개발 생산성 향상: MSW(Mock Service Worker)를 활용하여 API
-              Mocking → 백엔드 API 지연 상황에서도 핵심 로직을 사전에 구현
+              • Frontend: React.js, TypeScript, Vite, Zustand,
+              Styled-components, React Query
+            </span>
+            <span>
+              • Backend: Nest.js, TypeORM, Kotlin(Spring Boot), MariaDB, Redis
+            </span>
+            <span>
+              • Infra / AI: AWS Bedrock, S3, CloudFront, EC2, CloudWatch
             </span>
           </p>
         </div>
@@ -133,40 +150,78 @@ const PROJECTLIST = [
           <p className="font-medium text-xl">🔥 문제 해결 경험</p>
           <p className="text-md flex flex-col">
             <span>
-              해당 프로젝트는 <b>내부망 환경에서의 개발</b>이 처음이었기에, 외부
-              라이브러리 설치조차 <b>방화벽 등록을 필요</b>로 하는 등 높은 보안
-              제약 속에서 개발을 진행해야 했습니다.
+              프로젝트 초기에는 <b>Froala 에디터의 커스터마이징 한계</b>와{" "}
+              <b>AI 응답 데이터의 비정형성</b>이 가장 큰 과제였습니다. 단순한
+              텍스트 입력 에디터가 아닌, AI가 반환한 JSON 데이터를 기반으로 블록
+              단위의 이미지·텍스트를 실시간으로 렌더링하고 편집해야 했기
+              때문입니다.
             </span>
             <br />
             <span>
-              (1) 사용자 인증 이후, ‘등록번호/미등록번호’를 기반으로 예약 및
-              개인 정보 등 다양한 데이터를 불러오게 되며, 이 데이터는{" "}
-              <b>전 페이지에서 활용되는 핵심 정보</b>입니다.
+              (1) <b>Froala 에디터의 resize / drag 이벤트 불안정 문제</b>
             </span>
             <span>
-              (2) 초기에는 세션스토리지를 통해 데이터를 유지했으나,{" "}
-              <b>보안 심사 대응과 데이터 신뢰성 확보</b>를 위해 로직 방향을
-              수정해야 했습니다.
-            </span>
-            <span>
-              (3) React-Query의 <b>Prefetching 을 통한 캐싱 기능을 활용</b>,
-              수진자 데이터를 캐시하여 전역에서 효율적으로 접근할 수 있도록
-              변경하였습니다.
-            </span>
-            <span>
-              (4) 직접 개발한 useTarget() 커스텀 Hook을 통해{" "}
-              <b>수진자 정보 전역 공유</b> 로직을 구현하였고, B2B, B2C 모두 같은
-              로직을 사용하도록 변경하여 리팩토링을 진행하였습니다.
-            </span>
-            <span>
-              (5) (3)과 같이, <b>SSR을 도입하여 초기 로딩 속도 개선</b>을 통해
-              방대한 정보도 빠르게 렌더링되도록 UX 향상 시켰습니다.
+              → 커스텀 도형을 드래그하거나 그룹으로 이동할 때{" "}
+              <b>요소 위치가 흔들리거나 좌표가 틀어지는 현상</b>이 발생했습니다.
+              이를 해결하기 위해 <code>useDraggable</code> 훅을 직접 설계하고,
+              각 요소의 절대 좌표가 아닌 <b>그룹 기준 상대 좌표</b>로 이동하도록
+              구조를 변경했습니다. 또한 스냅 가이드라인 정렬 시{" "}
+              <b>요소의 중심점을 기준으로 보정</b>하는 로직을 추가하여 흔들림
+              없이 정렬되도록 개선했습니다.
             </span>
             <br />
             <span>
-              이 경험을 통해, 보안성과 사용자 경험(UX)을 모두 고려한 아키텍처
-              전환의 중요성을 체감했고, 기술 선택에 있어 단기 편의보다는 장기
-              안정성을 우선 고려하는 판단력을 키울 수 있었습니다.
+              (2) <b>GroupSelectionBox 범위 오차 문제</b>
+            </span>
+            <span>
+              → 여러 컴포넌트를 동시에 선택할 때, 박스의 크기와 실제 선택된
+              영역이 일치하지 않는 문제가 있었습니다. 원인은 CSS transform과
+              scale 값이 드래그 좌표 계산에 영향을 미친 것이었고, 이를 해결하기
+              위해 <b>요소의 bounding box 좌표를 직접 계산</b>하여 선택 영역을
+              재산정하는 방식을 도입했습니다.
+            </span>
+            <br />
+            <span>
+              (3) <b>AI 응답(JSON) 구조 불일치로 인한 렌더링 오류</b>
+            </span>
+            <span>
+              → AWS Bedrock으로부터 전달받은 JSON 응답의 key 구조가 요청마다
+              달라, 렌더링 과정에서 필드 누락이나 매핑 오류가 발생했습니다. 이를
+              방지하기 위해 렌더링 직전 단계에 <b>normalizeResponse()</b> 함수를
+              추가해, AI 응답을 표준 스키마 형태로 정규화했습니다. 덕분에 각
+              블록 컴포넌트가 동일한 데이터 구조를 받아 안정적으로 렌더링될 수
+              있었습니다.
+            </span>
+            <br />
+            <span>
+              (4) <b>AWS S3 이미지 관리 자동화</b>
+            </span>
+            <span>
+              → 에디터 내에서 생성·편집된 이미지들이 S3에 중복 저장되는 문제가
+              발생했습니다. 이를 해결하기 위해{" "}
+              <b>Nest.js 서비스 로직에 S3 객체 이동 및 복제 기능</b>을 추가하고,
+              사용하지 않는 임시 이미지 파일을 자동으로 정리하도록 구현했습니다.
+              이로써 스토리지 낭비를 줄이고, 이미지 파일 관리 효율을 높였습니다.
+            </span>
+            <br />
+            <span>
+              (5) <b>Nest.js → Kotlin(Spring Boot) 전환 중 구조 설계 참여</b>
+            </span>
+            <span>
+              → 기존 Nest.js 서버가 단일 모듈 구조로 되어 있어 유지보수가
+              어려웠습니다. 전환 과정에서 <b>도메인별 모듈화 구조</b>를
+              도입하고, 비즈니스 로직을 명확히 분리하는 방향으로 Kotlin 기반
+              설계를 진행했습니다. 이를 통해 서버 코드의 확장성과 테스트
+              용이성을 높이는 데 기여했습니다.
+            </span>
+            <br />
+            <span>
+              이러한 과정들을 거치며{" "}
+              <b>프론트엔드와 백엔드 간 경계를 넘나드는 문제 해결력</b>을
+              키웠고, 복잡한 렌더링 로직과 데이터 흐름을 안정적으로 제어하는
+              경험을 쌓았습니다. 특히, Froala의 한계를 넘어 에디터를 완전히
+              커스터마이징하며 <b>UI/UX 완성도와 기술적 깊이</b> 모두를 높일 수
+              있었습니다.
             </span>
           </p>
         </div>
@@ -176,38 +231,36 @@ const PROJECTLIST = [
           <p className="font-medium text-xl">✨ 성과 및 결과</p>
           <p className="text-md flex flex-col">
             <span>
-              총 1년 가까이 프로젝트에 투입되었으며, 비록 퇴사로 인해 완전한
-              마무리는 짓지 못했지만, 대규모 기업 환경에서의 개발 프로세스와
-              협업 문화를 깊이 체험할 수 있었습니다.
+              본 프로젝트는 현재 베타 오픈을 앞두고 있으며,{" "}
+              <b>AI를 활용한 상품 상세설명 자동 생성 서비스</b>로의 전환을 통해{" "}
+              판매자들의 업무 효율을 크게 향상시킬 것으로 기대됩니다.
             </span>
             <br />
             <span>
-              • 매주 <b>주간 스크럼을 통한 애자일 개발 방식</b> 적용
-            </span>
-            <span>• 병원 도메인의 복잡한 비즈니스 로직을 파악하고 구현</span>
-            <span>
-              • 협력사의 API 제공 지연 시,{" "}
-              <b>직접 Mock API를 제작하고 오류를 검출</b>하여 백엔드 팀에 피드백
+              • 기존에 판매자들이 업체와 직접 컨택하여 상세설명 이미지를
+              만들어야 하는 것을 해당 서비스를 통해 손쉽게 만들어{" "}
+              <b>상세페이지 제작 시간 약 80% 단축 예상</b>
             </span>
             <span>
-              • 프로젝트 내 3개의 챕터 중 <b>‘예방건진 B2C’</b> 파트의 개발
-              전반을 단독으로 완수
+              • AWS Bedrock을 실무에 적용하며,{" "}
+              <b>AI 모델 연동 경험과 데이터 파이프라인 설계 능력</b> 강화
             </span>
             <span>
-              • 수진자의 선택에 따라{" "}
-              <b>
-                검진 장소/날짜/시간 정보를 저장 및 전송하는 핵심 예약 로직 구현
-              </b>
+              • Nest.js → Kotlin 마이그레이션 과정 참여로{" "}
+              <b>서버 아키텍처와 도메인 설계 이해도 향상</b>
             </span>
+            <br />
             <span>
-              • 실제 예약 플로우를 설계하며 다양한 예외 처리와 데이터 유효성
-              검증 로직 구현
+              또한, 개인적으로는 이 프로젝트를 통해{" "}
+              <b>AI Agent 구조, 프롬프트 엔지니어링</b>에 관심을 넓히고 있으며,
+              이후에는 AI 기반 서비스 고도화에 필요한{" "}
+              <b>Agent 자동화 및 모델 최적화 기술</b>까지 확장해 나갈
+              계획입니다.
             </span>
             <br />
             <b>
-              복잡한 의료 예약 시스템의 흐름을 처음부터 끝까지 구현하며, 단순 UI
-              구현을 넘어 “서비스의 흐름과 구조를 설계하는 개발자”로 성장할 수
-              있는 계기가 되었습니다.
+              단순한 에디터가 아닌, AI가 실질적인 ‘디지털 판매 어시스턴트’로
+              발전하는 기반을 다졌다는 점에서 의미가 큰 프로젝트였습니다.
             </b>
           </p>
         </div>
@@ -669,7 +722,7 @@ const PROJECTLIST = [
   // 5. 두산 리즌마켓
   <ProjectNode
     key={`두산 리즌마켓 프로젝트`}
-    title={"리즌마켓"}
+    title={"리즌마켓 (현 두타온)"}
     detailTitle="친환경 쇼핑 플랫폼"
     startAt="2023.06"
     endAt="2023.10"

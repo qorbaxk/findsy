@@ -1,7 +1,6 @@
 "use client";
 
-import React, { ReactNode, useRef, useState, useLayoutEffect } from "react";
-import classNames from "classnames";
+import React, { ReactNode, useRef, useLayoutEffect } from "react";
 import Img from "@/components/Img";
 import Tag from "@/components/Tag";
 
@@ -47,71 +46,72 @@ const ProjectNode = ({
   tags,
 }: IProjectNode) => {
   const topRef = useRef<HTMLDivElement>(null);
-  const [maxHeight, setMaxHeight] = useState<number>(0);
 
   /**
    * 보고 있는 화면 사이즈에 맞춰서 높이 지정
    */
   useLayoutEffect(() => {
     if (topRef.current) {
-      const topHeight = topRef.current.offsetHeight;
+      // const topHeight = topRef.current.offsetHeight;
       // 창크기 - 여백 및 패딩 - 작성된 상단 내용
-      const available = window.innerHeight - 257 - topHeight;
-      setMaxHeight(available);
+      // const available = window.innerHeight - 257 - topHeight;
+      // 필요시 사용할 수 있도록 주석 처리
+      // setMaxHeight(available);
     }
   }, [topRef]);
 
   return (
-    <div
+    <article
       key={key}
-      className="w-full h-full px-4 md:px-[50px] py-2 md:py-4 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 overflow-y-auto md:overflow-y-visible"
+      className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
     >
-      {/* 왼쪽 영역 */}
-      <div
-        className={classNames(
-          "col-span-1 md:col-span-1 flex flex-col items-center justify-center relative shrink-0 h-48 md:h-auto gap-2"
-        )}
-      >
-        {img.map((imageItem, index) => (
-          <div key={index} className="relative w-full h-48 md:h-64">
-            <Img
-              src={imageItem.src}
-              alt={imageItem.alt}
-              fill
-              className="object-contain cursor-pointer hover:opacity-80 transition-opacity duration-200"
-              sizes="(max-width:768px) 100vw, 50vw"
-              onClick={() => window.open(imageItem.src, '_blank')}
-            />
-          </div>
-        ))}
-      </div>
-      {/* 오른쪽 영역 */}
-      <div className="col-span-1 md:col-span-2 flex flex-col gap-2 md:gap-4 grow">
-        <div ref={topRef}>
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end pb-2 gap-2 md:gap-0">
-            <div>
-              {/* 프로젝트 상세 타이틀 */}
-              <span className="text-xs">{detailTitle}</span>
-              {/* 프로젝트 타이틀 */}
-              <p className="text-xl md:text-3xl font-bold">{title}</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+        {/* 이미지 영역 */}
+        <div className="relative bg-gray-50 p-8 flex flex-col gap-4">
+          {img.map((imageItem, index) => (
+            <div key={index} className="relative w-full h-48 lg:h-56 flex-1">
+              <Img
+                src={imageItem.src}
+                alt={imageItem.alt}
+                fill
+                className="object-contain cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                sizes="(max-width:768px) 100vw, 50vw"
+                onClick={() => window.open(imageItem.src, '_blank')}
+              />
             </div>
-            {/* 프로젝트 기간 */}
-            <span className="text-sm">
-              {startAt} ~ {endAt}
-            </span>
-          </div>
-          {/* 프로젝트 태그 */}
-          <Tag items={tags} />
+          ))}
         </div>
-        {/* 프로젝트 내용 */}
-        <div
-          className="grow md:overflow-y-auto pc-scrollbar text-justify pr-1 md:pr-2 text-sm md:text-base"
-          style={{ maxHeight: window.innerWidth < 768 ? 'auto' : maxHeight }}
-        >
-          {description}
+        
+        {/* 콘텐츠 영역 */}
+        <div className="p-8 flex flex-col">
+          <div className="mb-6">
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <span className="text-sm text-gray-500 mb-2 block">{detailTitle}</span>
+                <h3 className="text-2xl lg:text-3xl font-Mediasansextended tracking-wide mb-2">
+                  {title}
+                </h3>
+                <span className="text-sm text-gray-500">
+                  {startAt} ~ {endAt}
+                </span>
+              </div>
+            </div>
+            
+            {/* 프로젝트 태그 */}
+            <div className="mb-6">
+              <Tag items={tags} />
+            </div>
+          </div>
+          
+          {/* 프로젝트 내용 */}
+          <div className="flex-1 overflow-y-auto">
+            <div className="text-gray-700 leading-relaxed text-sm">
+              {description}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

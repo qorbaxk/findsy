@@ -37,7 +37,7 @@ const getYearsExperience = () => {
   const diffInMonths =
     (today.getFullYear() - startDate.getFullYear()) * 12 +
     (today.getMonth() - startDate.getMonth());
-  const years = Math.ceil(diffInMonths / 12);
+  const years = Math.floor(diffInMonths / 12);
   return years;
 };
 const yearsExperience = getYearsExperience();
@@ -47,62 +47,85 @@ export default function Contact() {
     <>
       {/* 구조화된 데이터 */}
       <ContactStructuredData />
-      <main role="main" aria-label="연락처 정보">
-        <div className="p-4 md:p-16 h-screen pt-16 md:pt-16">
-          <article className="opacity-0 animate-fade-in transition-opacity duration-700 bg-white/60 border-[1px] border-solid border-white/80 rounded-[11px] p-2 md:p-4 h-full flex flex-col relative overflow-hidden">
-            {/* 하위 제목 */}
-            <header>
-              <h2 className="text-2xl md:text-4xl border-b-[1px] border-b-solid text-center pb-2 font-Mediasansextended">
-                Contact
-              </h2>
-            </header>
-            {/* 하단 소개 내용 */}
-            <section className="px-4 md:px-[300px] py-8 md:py-16 z-10">
-              <div className="flex flex-col text-xs md:text-sm">
-                <p>안녕하세요. {yearsExperience}년차 프론트엔드 개발자 백승연 입니다.</p>
-                <p>
-                  소프트웨어를 전공하고 SI회사에서 다양한 프로젝트를 경험하며 실무
-                  역량을 탄탄하게 다져왔습니다.
-                </p>
-                <br />
-                <p>
-                  새로운 기술을 빠르게 습득하고, 문제의 본질을 정확히 파악해
-                  해결하는 능력이 저의 강점입니다.
-                </p>
-                <p>
-                  함께 일했던 동료들은 저의 문제 해결력과 실행력을 신뢰하며, 저는
-                  이를 바탕으로 더 나은 서비스를 만들어가는 데 집중합니다.
-                </p>
-                <br />
-                <p>저는 팀의 성장과 성공을 위해 필요한 개발자입니다.</p>
-                <p className="underline underline-offset-2">
-                  저와 함께, 더 나은 서비스를 만들어가보실래요?
-                </p>
+      <main role="main" aria-label="연락처 정보" className="pt-24 ">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          {/* 페이지 헤더 */}
+          <header className="text-center mb-16">
+            <h1 className="text-5xl md:text-7xl font-Mediasansextended tracking-wider mb-6">
+              Contact
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              당신의 팀에 필요한 개발자가 여기 있습니다.
+            </p>
+          </header>
+
+          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 lg:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
+              {/* 소개 내용 */}
+              <div className="lg:col-span-2 space-y-6">
+                <div className="mb-6">
+                  <h2 className="text-2xl font-Mediasansextended tracking-wide mb-3 text-gray-900">
+                    개발자 백승연
+                  </h2>
+                  <p className="text-xl font-medium text-gray-800">
+                    {yearsExperience}년차 개발자, 하지만 성장 속도는 5년차급입니다.
+                  </p>
+                </div>
+                
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    <strong>React, Next.js, TypeScript</strong>로 현대적인 웹을 만들고, 
+                    <strong> AI 기반 서비스</strong>까지 개발해왔습니다.
+                  </p>
+                  <p>
+                    문제를 정확히 파악하고 <strong>빠르게 해결</strong>하는 것이 저의 강점입니다. 
+                    팀원들은 제 실행력을 신뢰합니다.
+                  </p>
+                  <p>
+                    단순한 기능 구현이 아닌, <strong>사용자 경험을 개선</strong>하는 개발을 합니다. 
+                    성능 최적화, 접근성, 코드 품질까지 고려합니다.
+                  </p>
+                </div>
+                
+                <div className="pt-6 border-t border-gray-200">
+                  <p className="font-medium text-lg text-gray-900 mb-6">
+                    당신의 프로젝트가 성공하도록, 함께 만들어보시겠어요?
+                  </p>
+                  
+                  {/* 연락 버튼 */}
+                  <a
+                    href="mailto:qorbaxk97@gmail.com"
+                    className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium tracking-wide rounded-lg overflow-hidden transition-all duration-500 ease-out hover:from-gray-900 hover:to-gray-800 hover:scale-[1.02] hover:shadow-xl"
+                    aria-label="이메일로 연락하기"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      함께 일하고 싶어요
+                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  </a>
+                </div>
               </div>
-              {/* 연락 버튼 */}
-              <div className="pt-4 md:pt-8 flex flex-col gap-4 md:gap-8">
-                {/* 메일 제안 */}
-                <a
-                  href="mailto:qorbaxk97@gmail.com"
-                  className="bg-orange-500 hover:scale-[1.1] transition-all not-hover:animate-pulse  w-full block rounded-lg p-2 text-center cursor-pointer"
-                  aria-label="이메일로 제안 보내기"
-                >
-                  제안 보내기
-                </a>
-             
+
+              {/* 프로필 이미지 */}
+              <div className="lg:col-span-1 flex justify-center lg:justify-end">
+                <div className="relative w-56 h-72 lg:w-64 lg:h-80 group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400/30 to-red-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                  <div className="relative w-full h-full">
+                    <Img
+                      src={"/images/me2.webp"}
+                      alt="프론트엔드 개발자 백승연의 프로필 사진"
+                      fill
+                      className="object-cover object-top rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500"
+                      sizes="(max-width: 768px) 224px, 256px"
+                    />
+                  </div>
+                </div>
               </div>
-            </section>
-            <aside className="absolute bottom-0 right-0">
-              <Img
-                src={"/images/me.webp"}
-                alt="프론트엔드 개발자 백승연의 프로필 사진"
-                width={400}
-                height={400}
-                sizes="(max-width: 768px) 200px, 400px"
-                className="w-[200px] h-[200px] md:w-[400px] md:h-[400px]"
-              />
-            </aside>
-          </article>
+            </div>
+          </div>
         </div>
       </main>
     </>
