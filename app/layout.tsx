@@ -140,12 +140,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="relative w-full min-h-screen overflow-hidden">
+      <body className="relative w-full min-h-screen text-black font-sans antialiased">
         {/* 구조화된 데이터 */}
         <StructuredData />
         
         {/* 자식 페이지들 */}
-        <section className="relative z-0">
+        <section className="relative z-10">
           {/* 네비게이션 */}
           <Navbar />
           {children}
@@ -160,7 +160,7 @@ export default function RootLayout({
           autoPlay
           muted
           playsInline
-          className="fixed top-0 left-0 w-full h-full object-cover -z-10"
+          className="fixed top-0 left-0 w-full h-full object-cover -z-10 opacity-60"
           aria-hidden
         >
           <source

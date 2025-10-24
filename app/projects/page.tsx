@@ -7,7 +7,8 @@ import ProjectStructuredData from "@/components/ProjectStructuredData";
 
 export const metadata: Metadata = {
   title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
-  description: "프론트엔드 개발자 백승연의 프로젝트 포트폴리오입니다. 강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+  description:
+    "프론트엔드 개발자 백승연의 프로젝트 포트폴리오입니다. 강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
   keywords: [
     "프론트엔드 프로젝트",
     "웹 개발 프로젝트",
@@ -17,18 +18,20 @@ export const metadata: Metadata = {
     "블랙뱃지 CRM",
     "리즌마켓",
     "포트폴리오 프로젝트",
-    "웹 개발 경험"
+    "웹 개발 경험",
   ],
   openGraph: {
     title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
-    description: "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+    description:
+      "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
     type: "website",
     locale: "ko_KR",
   },
   twitter: {
     card: "summary_large_image",
     title: "프로젝트 | 프론트엔드 개발자 백승연 포트폴리오",
-    description: "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
+    description:
+      "강북삼성병원 웹예약 시스템, 블랙뱃지 CRM, 공통 컴포넌트 자산화, 리즌마켓 등 다양한 프로젝트 경험을 확인하세요.",
   },
 };
 
@@ -40,22 +43,25 @@ export default function Projects() {
     <>
       {/* 구조화된 데이터 */}
       <ProjectStructuredData />
-      <main role="main" aria-label="프로젝트 포트폴리오">
-        <div className="p-4 md:p-16 h-screen pt-16 md:pt-16">
-          <article className="opacity-0 animate-fade-in transition-opacity duration-700 bg-white/60 border-[1px] border-solid border-white/80 rounded-[11px] p-2 md:p-4 h-full flex flex-col">
-            {/* 하위 제목 */}
-            <header>
-              <h2 className="text-2xl md:text-4xl border-b-[1px] border-b-solid text-center pb-2 font-Mediasansextended">
-                Projects
-              </h2>
-            </header>
-            {/* 나열할 프로젝트 */}
-            <section aria-label="프로젝트 목록">
-              <Suspense fallback={<ProjectSkeleton />}>
-                <Slider items={PROJECTLIST} />
-              </Suspense>
-            </section>
-          </article>
+      <main role="main" aria-label="프로젝트 포트폴리오" className="pt-24">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          {/* 페이지 헤더 */}
+          <header className="text-center mb-16">
+            <h1 className="text-5xl md:text-7xl font-Mediasansextended tracking-wider mb-6">
+              Projects
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              다양한 프로젝트를 통해 성장한 개발 경험과 기술적 도전을
+              소개합니다.
+            </p>
+          </header>
+
+          {/* 프로젝트 목록 */}
+          <section aria-label="프로젝트 목록" className="space-y-24">
+            <Suspense fallback={<ProjectSkeleton />}>
+              <Slider items={PROJECTLIST} />
+            </Suspense>
+          </section>
         </div>
       </main>
     </>
@@ -66,17 +72,214 @@ export default function Projects() {
  * 업로드하는 프로젝트 목록
  */
 const PROJECTLIST = [
-  // 1. 강북삼성병원
+  // 1. AI 상세설명 생성 에디터
+  <ProjectNode
+    key={`AI 상세설명 생성 에디터 프로젝트`}
+    title={"셀핏: AI 상세설명 생성 에디터"}
+    detailTitle="상품 상세설명을 AI로 자동 생성하는 에디터"
+    startAt="2025.05"
+    endAt="진행중"
+    img={[
+      {
+        src: "/images/projects/sellfit1.webp",
+        alt: "AI 상세설명 생성 에디터 프로젝트 이미지 1",
+      },
+      {
+        src: "/images/projects/sellfit2.webp",
+        alt: "AI 상세설명 생성 에디터 프로젝트 이미지 2",
+      },
+    ]}
+    tags={[
+      "셀핏 AI",
+      "AI agent",
+      "AI 상세설명 생성 에디터",
+      "상품 상세설명 자동 생성",
+      "Amazon Bedrock",
+      "Nest.js",
+      "Kotiln",
+      "React",
+      "Vite",
+      "TypeScript",
+      "React Query",
+      "Zustand",
+      "Styled-components",
+      "Redis",
+      "AWS S3",
+      "AWS Bedrock",
+    ]}
+    description={
+      <div className="flex flex-col gap-4">
+        {/* 프로젝트 소개 */}
+        <div className="bg-yellow-50 rounded-lg py-2 px-4 flex flex-col gap-1">
+          <p className="font-medium text-xl">📎 프로젝트 소개</p>
+          <p className="text-md flex flex-col">
+            <span>
+              플레이오토에서 2026년 상용화를 목표로 진행 중인{" "}
+              <b>AI 기반 상품 상세설명 이미지 생성 에디터 서비스</b>입니다.
+              사용자는 상품명, 이미지, 카테고리 등의 기본 정보만 입력하면,{" "}
+              <b>AWS Bedrock 기반 AI</b>가 해당 상품에 어울리는 상세설명
+              이미지를 자동으로 생성해줍니다. 생성된 결과물은 에디터 내에서
+              자유롭게 편집할 수 있으며, “제디터”나 “미리캔버스”와 같은{" "}
+              <b>디자인 에디터에 AI 기능을 결합한 형태</b>입니다.
+            </span>
+            <br />
+            <span className="font-medium">✤ 투입 인력 및 협업</span>
+            <span>
+              프론트엔드 2명, 백엔드 2명, 기획 1명, 디자인 2명, 퍼블 2명으로
+              구성된 팀에서{" "}
+              <b>프론트엔드 개발을 중심으로 백엔드와 인프라 개발까지 병행</b>
+              했습니다. Jira 기반 애자일 스프린트로 업무를 관리했습니다.
+            </span>
+            <br />
+            <span className="font-medium">✤ 기술스택</span>
+            <span>
+              • Frontend: React.js, TypeScript, Vite, Zustand,
+              Styled-components, React Query
+            </span>
+            <span>
+              • Backend: Nest.js, TypeORM, Kotlin(Spring Boot), MariaDB, Redis
+            </span>
+            <span>
+              • Infra / AI: AWS Bedrock, S3, CloudFront, EC2, CloudWatch
+            </span>
+          </p>
+        </div>
+
+        {/* 문제 해결 경험 */}
+        <div className="bg-yellow-50 rounded-lg py-2 px-4 flex flex-col gap-1">
+          <p className="font-medium text-xl">🔥 문제 해결 경험</p>
+          <p className="text-md flex flex-col">
+            <span>
+              프로젝트 초기에는 <b>Froala 에디터의 커스터마이징 한계</b>와{" "}
+              <b>AI 응답 데이터의 비정형성</b>이 가장 큰 과제였습니다. 단순한
+              텍스트 입력 에디터가 아닌, AI가 반환한 JSON 데이터를 기반으로 블록
+              단위의 이미지·텍스트를 실시간으로 렌더링하고 편집해야 했기
+              때문입니다.
+            </span>
+            <br />
+            <span>
+              (1) <b>Froala 에디터의 resize / drag 이벤트 불안정 문제</b>
+            </span>
+            <span>
+              → 커스텀 도형을 드래그하거나 그룹으로 이동할 때{" "}
+              <b>요소 위치가 흔들리거나 좌표가 틀어지는 현상</b>이 발생했습니다.
+              이를 해결하기 위해 <code>useDraggable</code> 훅을 직접 설계하고,
+              각 요소의 절대 좌표가 아닌 <b>그룹 기준 상대 좌표</b>로 이동하도록
+              구조를 변경했습니다. 또한 스냅 가이드라인 정렬 시{" "}
+              <b>요소의 중심점을 기준으로 보정</b>하는 로직을 추가하여 흔들림
+              없이 정렬되도록 개선했습니다.
+            </span>
+            <br />
+            <span>
+              (2) <b>GroupSelectionBox 범위 오차 문제</b>
+            </span>
+            <span>
+              → 여러 컴포넌트를 동시에 선택할 때, 박스의 크기와 실제 선택된
+              영역이 일치하지 않는 문제가 있었습니다. 원인은 CSS transform과
+              scale 값이 드래그 좌표 계산에 영향을 미친 것이었고, 이를 해결하기
+              위해 <b>요소의 bounding box 좌표를 직접 계산</b>하여 선택 영역을
+              재산정하는 방식을 도입했습니다.
+            </span>
+            <br />
+            <span>
+              (3) <b>AI 응답(JSON) 구조 불일치로 인한 렌더링 오류</b>
+            </span>
+            <span>
+              → AWS Bedrock으로부터 전달받은 JSON 응답의 key 구조가 요청마다
+              달라, 렌더링 과정에서 필드 누락이나 매핑 오류가 발생했습니다. 이를
+              방지하기 위해 렌더링 직전 단계에 <b>normalizeResponse()</b> 함수를
+              추가해, AI 응답을 표준 스키마 형태로 정규화했습니다. 덕분에 각
+              블록 컴포넌트가 동일한 데이터 구조를 받아 안정적으로 렌더링될 수
+              있었습니다.
+            </span>
+            <br />
+            <span>
+              (4) <b>AWS S3 이미지 관리 자동화</b>
+            </span>
+            <span>
+              → 에디터 내에서 생성·편집된 이미지들이 S3에 중복 저장되는 문제가
+              발생했습니다. 이를 해결하기 위해{" "}
+              <b>Nest.js 서비스 로직에 S3 객체 이동 및 복제 기능</b>을 추가하고,
+              사용하지 않는 임시 이미지 파일을 자동으로 정리하도록 구현했습니다.
+              이로써 스토리지 낭비를 줄이고, 이미지 파일 관리 효율을 높였습니다.
+            </span>
+            <br />
+            <span>
+              (5) <b>Nest.js → Kotlin(Spring Boot) 전환 중 구조 설계 참여</b>
+            </span>
+            <span>
+              → 기존 Nest.js 서버가 단일 모듈 구조로 되어 있어 유지보수가
+              어려웠습니다. 전환 과정에서 <b>도메인별 모듈화 구조</b>를
+              도입하고, 비즈니스 로직을 명확히 분리하는 방향으로 Kotlin 기반
+              설계를 진행했습니다. 이를 통해 서버 코드의 확장성과 테스트
+              용이성을 높이는 데 기여했습니다.
+            </span>
+            <br />
+            <span>
+              이러한 과정들을 거치며{" "}
+              <b>프론트엔드와 백엔드 간 경계를 넘나드는 문제 해결력</b>을
+              키웠고, 복잡한 렌더링 로직과 데이터 흐름을 안정적으로 제어하는
+              경험을 쌓았습니다. 특히, Froala의 한계를 넘어 에디터를 완전히
+              커스터마이징하며 <b>UI/UX 완성도와 기술적 깊이</b> 모두를 높일 수
+              있었습니다.
+            </span>
+          </p>
+        </div>
+
+        {/* 성과 및 결과 */}
+        <div className="bg-yellow-50 rounded-lg py-2 px-4 flex flex-col gap-1">
+          <p className="font-medium text-xl">✨ 성과 및 결과</p>
+          <p className="text-md flex flex-col">
+            <span>
+              본 프로젝트는 현재 베타 오픈을 앞두고 있으며,{" "}
+              <b>AI를 활용한 상품 상세설명 자동 생성 서비스</b>로의 전환을 통해{" "}
+              판매자들의 업무 효율을 크게 향상시킬 것으로 기대됩니다.
+            </span>
+            <br />
+            <span>
+              • 기존에 판매자들이 업체와 직접 컨택하여 상세설명 이미지를
+              만들어야 하는 것을 해당 서비스를 통해 손쉽게 만들어{" "}
+              <b>상세페이지 제작 시간 약 80% 단축 예상</b>
+            </span>
+            <span>
+              • AWS Bedrock을 실무에 적용하며,{" "}
+              <b>AI 모델 연동 경험과 데이터 파이프라인 설계 능력</b> 강화
+            </span>
+            <span>
+              • Nest.js → Kotlin 마이그레이션 과정 참여로{" "}
+              <b>서버 아키텍처와 도메인 설계 이해도 향상</b>
+            </span>
+            <br />
+            <span>
+              또한, 개인적으로는 이 프로젝트를 통해{" "}
+              <b>AI Agent 구조, 프롬프트 엔지니어링</b>에 관심을 넓히고 있으며,
+              이후에는 AI 기반 서비스 고도화에 필요한{" "}
+              <b>Agent 자동화 및 모델 최적화 기술</b>까지 확장해 나갈
+              계획입니다.
+            </span>
+            <br />
+            <b>
+              단순한 에디터가 아닌, AI가 실질적인 ‘디지털 판매 어시스턴트’로
+              발전하는 기반을 다졌다는 점에서 의미가 큰 프로젝트였습니다.
+            </b>
+          </p>
+        </div>
+      </div>
+    }
+  />,
+  // 2. 강북삼성병원
   <ProjectNode
     key={`강북삼성병원 프로젝트`}
     title={"강북삼성병원 웹예약 시스템"}
     detailTitle="차세대 건강검진 예약 시스템"
     startAt="2024.06"
     endAt="2025.03"
-    img={{
-      src: "/images/projects/kbsmc.webp",
-      alt: "강북삼성병원 프로젝트 이미지",
-    }}
+    img={[
+      {
+        src: "/images/projects/kbsmc.webp",
+        alt: "강북삼성병원 프로젝트 이미지",
+      },
+    ]}
     tags={[
       "강북삼성병원",
       "삼성SDS",
@@ -223,17 +426,19 @@ const PROJECTLIST = [
       </div>
     }
   />,
-  // 2. 블랙뱃지
+  // 3. 블랙뱃지
   <ProjectNode
     key={`블랙뱃지 프로젝트`}
     title={"블랙뱃지 CRM"}
     detailTitle="결혼정보회사 회원 관리 시스템"
     startAt="2024.03"
     endAt="2024.06"
-    img={{
-      src: "/images/projects/blackbadge.webp",
-      alt: "블랙뱃지 프로젝트 이미지",
-    }}
+    img={[
+      {
+        src: "/images/projects/blackbadge.webp",
+        alt: "블랙뱃지 프로젝트 이미지",
+      },
+    ]}
     tags={[
       "블랙뱃지",
       "결혼정보회사",
@@ -353,17 +558,19 @@ const PROJECTLIST = [
       </div>
     }
   />,
-  // 3. 공통 컴포넌트 작업
+  // 4. 공통 컴포넌트 작업
   <ProjectNode
     key={`공통 컴포넌트 프로젝트`}
     title={"공통 컴포넌트 자산화 프로젝트"}
     detailTitle="모든 프로젝트의 빠른 개발을 위한"
     startAt="2023.10"
     endAt="2024.02"
-    img={{
-      src: "/images/projects/commoncomponent.webp",
-      alt: "공통 컴포넌트 프로젝트 이미지",
-    }}
+    img={[
+      {
+        src: "/images/projects/commoncomponent.webp",
+        alt: "공통 컴포넌트 프로젝트 이미지",
+      },
+    ]}
     tags={[
       "공통 컴포넌트",
       "자산화 프로젝트",
@@ -512,17 +719,19 @@ const PROJECTLIST = [
       </div>
     }
   />,
-  // 4. 두산 리즌마켓
+  // 5. 두산 리즌마켓
   <ProjectNode
     key={`두산 리즌마켓 프로젝트`}
-    title={"리즌마켓"}
+    title={"리즌마켓 (현 두타온)"}
     detailTitle="친환경 쇼핑 플랫폼"
     startAt="2023.06"
     endAt="2023.10"
-    img={{
-      src: "/images/projects/rezn.webp",
-      alt: "두산 리즌마켓 프로젝트 이미지",
-    }}
+    img={[
+      {
+        src: "/images/projects/rezn.webp",
+        alt: "두산 리즌마켓 프로젝트 이미지",
+      },
+    ]}
     tags={[
       "두산",
       "리즌마켓",
