@@ -16,7 +16,7 @@ interface IImg {
 
 interface IProjectNode {
   key: string;
-  img: IImg;
+  img: IImg[];
   title: string;
   detailTitle: string;
   startAt: string;
@@ -28,7 +28,7 @@ interface IProjectNode {
 /**
  * 프로젝트 구성 컴포넌트
  * @param {string} key - 식별을 위한 고유 키
- * @param {IImg} img - 이미지 정보
+ * @param {IImg[]} img - 이미지 정보 배열
  * @param {string} title - 프로젝트 제목
  * @param {string} detailTitle - 프로젝트 상세 1줄 요약
  * @param {string} description - 프로젝트 설명
@@ -69,16 +69,21 @@ const ProjectNode = ({
       {/* 왼쪽 영역 */}
       <div
         className={classNames(
-          "col-span-1 md:col-span-1 flex items-center justify-center relative shrink-0 h-48 md:h-auto"
+          "col-span-1 md:col-span-1 flex flex-col items-center justify-center relative shrink-0 h-48 md:h-auto gap-2"
         )}
       >
-        <Img
-          src={img.src}
-          alt={img.alt}
-          fill
-          className="object-contain"
-          sizes="(max-width:768px) 100vw, 50vw"
-        />
+        {img.map((imageItem, index) => (
+          <div key={index} className="relative w-full h-48 md:h-64">
+            <Img
+              src={imageItem.src}
+              alt={imageItem.alt}
+              fill
+              className="object-contain cursor-pointer hover:opacity-80 transition-opacity duration-200"
+              sizes="(max-width:768px) 100vw, 50vw"
+              onClick={() => window.open(imageItem.src, '_blank')}
+            />
+          </div>
+        ))}
       </div>
       {/* 오른쪽 영역 */}
       <div className="col-span-1 md:col-span-2 flex flex-col gap-2 md:gap-4 grow">
