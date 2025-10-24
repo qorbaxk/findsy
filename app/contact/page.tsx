@@ -47,32 +47,32 @@ export default function Contact() {
     <>
       {/* 구조화된 데이터 */}
       <ContactStructuredData />
-      <main role="main" aria-label="연락처 정보" className="pt-24 ">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+      <main role="main" aria-label="연락처 정보" className="pt-16 sm:pt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
           {/* 페이지 헤더 */}
-          <header className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-Mediasansextended tracking-wider mb-6">
+          <header className="text-center mb-12 sm:mb-16">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-Mediasansextended tracking-wider mb-4 sm:mb-6">
               Contact
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
               당신의 팀에 필요한 개발자가 여기 있습니다.
             </p>
           </header>
 
-          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 lg:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
+          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 items-center">
               {/* 소개 내용 */}
-              <div className="lg:col-span-2 space-y-6">
-                <div className="mb-6">
-                  <h2 className="text-2xl font-Mediasansextended tracking-wide mb-3 text-gray-900">
+              <div className="lg:col-span-2 space-y-4 sm:space-y-6">
+                <div className="mb-4 sm:mb-6">
+                  <h2 className="text-xl sm:text-2xl font-Mediasansextended tracking-wide mb-2 sm:mb-3 text-gray-900">
                     개발자 백승연
                   </h2>
-                  <p className="text-xl font-medium text-gray-800">
+                  <p className="text-lg sm:text-xl font-medium text-gray-800">
                     {yearsExperience}년차 개발자, 하지만 성장 속도는 5년차급입니다.
                   </p>
                 </div>
                 
-                <div className="space-y-4 text-gray-700 leading-relaxed">
+                <div className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
                   <p>
                     <strong>React, Next.js, TypeScript</strong>로 현대적인 웹을 만들고, 
                     <strong> AI 기반 서비스</strong>까지 개발해왔습니다.
@@ -87,15 +87,15 @@ export default function Contact() {
                   </p>
                 </div>
                 
-                <div className="pt-6 border-t border-gray-200">
-                  <p className="font-medium text-lg text-gray-900 mb-6">
+                <div className="pt-4 sm:pt-6 border-t border-gray-200">
+                  <p className="font-medium text-base sm:text-lg text-gray-900 mb-4 sm:mb-6">
                     당신의 프로젝트가 성공하도록, 함께 만들어보시겠어요?
                   </p>
                   
                   {/* 연락 버튼 */}
                   <a
                     href="mailto:qorbaxk97@gmail.com"
-                    className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium tracking-wide rounded-lg overflow-hidden transition-all duration-500 ease-out hover:from-gray-900 hover:to-gray-800 hover:scale-[1.02] hover:shadow-xl"
+                    className="group relative inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium tracking-wide rounded-lg overflow-hidden transition-all duration-500 ease-out hover:from-gray-900 hover:to-gray-800 hover:scale-[1.02] hover:shadow-xl text-sm sm:text-base"
                     aria-label="이메일로 연락하기"
                   >
                     <span className="relative z-10 flex items-center gap-2">
@@ -111,7 +111,7 @@ export default function Contact() {
 
               {/* 프로필 이미지 */}
               <div className="lg:col-span-1 flex justify-center lg:justify-end">
-                <div className="relative w-56 h-72 lg:w-64 lg:h-80 group">
+                <div className="relative w-48 h-60 sm:w-56 sm:h-72 lg:w-64 lg:h-80 group">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-400/30 to-red-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
                   <div className="relative w-full h-full">
                     <Img
@@ -119,7 +119,7 @@ export default function Contact() {
                       alt="프론트엔드 개발자 백승연의 프로필 사진"
                       fill
                       className="object-cover object-top rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500"
-                      sizes="(max-width: 768px) 224px, 256px"
+                      sizes="(max-width: 640px) 192px, (max-width: 1024px) 224px, 256px"
                     />
                   </div>
                 </div>
