@@ -31,24 +31,24 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main role="main" aria-label="홈페이지" className="pt-0">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        {/* 메인 타이틀 섹션 */}
-        <section className="text-center mb-24">
-          <div className="h-64 md:h-80 lg:h-96 flex items-center justify-center mb-8">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-Mediasansextended tracking-wider">
-              <Typing sequence={["Hello.\nI am Seungyeon"]} />
-            </h1>
-          </div>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            안녕하세요. 프론트엔드 개발자 백승연의 포트폴리오입니다.<br />
-          </p>
-        </section>
+        <main role="main" aria-label="홈페이지" className="pt-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+            {/* 메인 타이틀 섹션 */}
+            <section className="text-center mb-16 sm:mb-24">
+              <div className="h-48 sm:h-64 md:h-80 lg:h-96 flex items-center justify-center mb-6 sm:mb-8">
+                <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-Mediasansextended tracking-wider">
+                  <Typing sequence={["Hello.\nI am Seungyeon"]} />
+                </h1>
+              </div>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+                안녕하세요. 프론트엔드 개발자 백승연의 포트폴리오입니다.<br />
+              </p>
+            </section>
 
         {/* 소개 섹션 */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
-          <div className="space-y-6 bg-white/20 backdrop-blur-sm rounded-2xl p-8">
-            <h2 className="text-3xl font-Mediasansextended tracking-wide">About</h2>
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 mb-16 sm:mb-24">
+          <div className="space-y-6 bg-white/20 backdrop-blur-sm rounded-2xl p-6 sm:p-8">
+            <h2 className="text-2xl sm:text-3xl font-Mediasansextended tracking-wide">About</h2>
             <div className="space-y-4 text-gray-800 leading-relaxed">
               <p>
                 소프트웨어학과를 전공하고 다양한 웹서비스를 개발하며 실무 역량을 쌓아온 2년 차 개발자입니다. 

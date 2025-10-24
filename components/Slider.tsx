@@ -88,7 +88,8 @@ const Slider = ({
       loop={isLoop}
       navigation
       modules={[Navigation]}
-      className="w-full h-full"
+      className="w-full"
+      autoHeight={true}
       initialSlide={initialSlide}
       onSlideChange={handleSlideChange}
       onSwiper={(swiper) => {

@@ -43,21 +43,21 @@ export default function Projects() {
     <>
       {/* 구조화된 데이터 */}
       <ProjectStructuredData />
-      <main role="main" aria-label="프로젝트 포트폴리오" className="pt-24">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+      <main role="main" aria-label="프로젝트 포트폴리오" className="pt-16 sm:pt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
           {/* 페이지 헤더 */}
-          <header className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-Mediasansextended tracking-wider mb-6">
+          <header className="text-center mb-12 sm:mb-16">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-Mediasansextended tracking-wider mb-4 sm:mb-6">
               Projects
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
               다양한 프로젝트를 통해 성장한 개발 경험과 기술적 도전을
               소개합니다.
             </p>
           </header>
 
           {/* 프로젝트 목록 */}
-          <section aria-label="프로젝트 목록" className="space-y-24">
+          <section aria-label="프로젝트 목록" className="space-y-16 sm:space-y-24">
             <Suspense fallback={<ProjectSkeleton />}>
               <Slider items={PROJECTLIST} />
             </Suspense>
