@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
  * 상단 네비게이션바
  */
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,8 +18,6 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const scrollThreshold = 50;
-      
-      setIsScrolled(currentScrollY > scrollThreshold);
       
       if (isHomePage) {
         // 홈페이지: 스크롤하면 나타나고, 최상단으로 가면 페이드아웃

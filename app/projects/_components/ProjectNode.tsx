@@ -1,8 +1,7 @@
 "use client";
 
-import React, { ReactNode, useRef, useLayoutEffect } from "react";
+import React, { ReactNode } from "react";
 import Img from "@/components/Img";
-import Tag from "@/components/Tag";
 
 /**
  * @param {string} src - 이미지 경로 위치
@@ -45,20 +44,6 @@ const ProjectNode = ({
   endAt,
   tags,
 }: IProjectNode) => {
-  const topRef = useRef<HTMLDivElement>(null);
-
-  /**
-   * 보고 있는 화면 사이즈에 맞춰서 높이 지정
-   */
-  useLayoutEffect(() => {
-    if (topRef.current) {
-      // const topHeight = topRef.current.offsetHeight;
-      // 창크기 - 여백 및 패딩 - 작성된 상단 내용
-      // const available = window.innerHeight - 257 - topHeight;
-      // 필요시 사용할 수 있도록 주석 처리
-      // setMaxHeight(available);
-    }
-  }, [topRef]);
 
   return (
     <article
@@ -125,7 +110,7 @@ const ProjectNode = ({
         {/* 이미지 영역 - 데스크톱만 */}
         <div className="relative bg-gray-50 p-8 flex flex-col gap-4">
           {img.map((imageItem, index) => (
-            <div key={index} className="relative w-full h-200">
+            <div key={index} className="relative w-full h-[500px]">
               <Img
                 src={imageItem.src}
                 alt={imageItem.alt}
