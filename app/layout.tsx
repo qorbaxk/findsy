@@ -166,8 +166,8 @@ export default function RootLayout({
           <source
             src={
               process.env.NODE_ENV === "production"
-                ? "/findsy/videos/background.mp4"
-                : "/videos/background.mp4"
+                ? "/findsy/videos/background_compressed.mp4"
+                : "/videos/background_compressed.mp4"
             }
             type="video/mp4"
           />

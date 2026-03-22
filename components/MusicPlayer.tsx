@@ -12,30 +12,10 @@ const MusicPlayer = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const rotationRef = useRef<number>(0);
   const overlayRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  /**
-   * LP 각도를 위한 설정
-   */
-  useEffect(() => {
-    let animationFrameId: number;
-    const rotate = () => {
-      rotationRef.current = (rotationRef.current + 1) % 360;
-      if (overlayRef.current) {
-        overlayRef.current.style.transform = `rotate(${rotationRef.current}deg)`;
-      }
-      animationFrameId = requestAnimationFrame(rotate);
-    };
-
-    if (isPlaying) {
-      animationFrameId = requestAnimationFrame(rotate);
-    }
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [isPlaying]);
+  // JS를 이용한 수동 회전 대신 CSS 애니메이션을 사용하도록 변경하여 성능 최적화
 
   /**
    * 화면 크기 감지
@@ -119,13 +99,14 @@ const MusicPlayer = () => {
         >
           <div
             ref={overlayRef}
-            className="absolute inset-0 rounded-full"
+            className="absolute inset-0 rounded-full animate-[spin_4s_linear_infinite]"
             style={{
               backgroundImage: `url('${
                 process.env.NODE_ENV === "production" ? "/findsy" : ""
               }/images/lp.webp')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              animationPlayState: isPlaying ? "running" : "paused",
             }}
           />
         </button>
